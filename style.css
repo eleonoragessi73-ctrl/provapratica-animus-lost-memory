@@ -5,6 +5,11 @@
 
  }
 
+ img {
+     display: inline-block; /* permette aall'img di occupare uno spazio specifico e se sono affianco all'altra si posizionano tranquillamente */
+     max-width: 100%;
+ }
+
  @font-face {
   font-family: "Mona Sans";
   src: url("provapratica-animus-lost-memory/assets/fonts/mona-sans.woff2") format("woff2");
@@ -24,43 +29,76 @@
     --font-body:"Mona Sans";
     --color-black:#000;
     --color-white:#fff;
-    --color-grey:rgb(147, 147, 147);
+    --color-grey:#C4CCC6;
+    --color-green:#08872B;
+    --container-width:1920px;
+    --color-border-muted:#191f1b;
 }
 
 body{
-
     font-family: var(--font-body);
 }
     
 .hero{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     background-image: url("assets/images/Cover background hero.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-color: var(--color-black);
-    color: var(--color-white);
-    
+    color: var(--color-white);    
 }
 
 .hero p{
     color: var(--color-grey);
 }
 
-
-
-.container{
-    max-width:1440px;
-}
-
-.hero-content{
-    height: 600px;
-}
-
 .hero span{
     display: flex;
-    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 28px;
+    margin-bottom: 28px;
+    gap: 16px;
+}
+
+a { text-decoration: none; }
+
+.button-concept{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 6px;
+    background-color: var(--color-green);
+    border: var(--color-green) solid 1px;
+    color:var(--color-white);
+    font-size: 16px;
+
+}
+
+.button-prototypes{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 6px;
+    border: var(--color-grey) solid 1px;
+    color:var(--color-grey);
+    font-size: 16px;
+}
+
+.container{
+    max-width:var(--container-width); /* Qui a sto punto non varrebbe la pena mettere 1920px invece di 1440px? Csì se vado oltre mi assicuro di levare il problema e di, alla fine, averne soltanto quello delle misure minori */
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   /* margin-left: auto;  Ogni tanto può aiutare a centrare il nostro elemento container, ma solo con una section a tutta larghezza 
+    margin-right: auto; */ 
+}
+
+.hero-content {
+    padding: 64px;
+    border-left: var(--color-border-muted) 1px solid;
+    border-right: var(--color-border-muted) 1px solid; /* Serve per eliminare quelle linee di layout che troviamo nel file figma originale del professore*/
 }
