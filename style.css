@@ -1,31 +1,66 @@
 *, *::before, *::after{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+ }
+
+ @font-face {
+  font-family: "Mona Sans";
+  src: url("provapratica-animus-lost-memory/assets/fonts/mona-sans.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+  font-feature-settings: "liga" 0;
+}
+@font-face {
+  font-family: "Mona Sans Mono";
+  src: url("provapratica-animus-lost-memory/assets/fonts/mona-sans-mono.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+  font-feature-settings: "liga" 0;
+}
+
+:root{ /* selettore globale, così siamo sicuri che le nostre variabili in modo tale che tutti gli elementi CSS posso utilizzarlo */
+    --font-body:"Mona Sans";
+    --color-black:#000;
+    --color-white:#fff;
+    --color-grey:rgb(147, 147, 147);
 }
 
 body{
-    background-color: black;
-    font-family: "Poppins", metropolis, sans-serif;
+
+    font-family: var(--font-body);
+}
+    
+.hero{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("assets/images/Cover background hero.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    
 }
 
-a{
-    text-decoration: none;
-    color: aliceblue;
-    font-weight: 600;
+.hero p{
+    color: var(--color-grey);
 }
 
-p {
-    color: white;
+
+
+.container{
+    max-width:1440px;
 }
 
-h1,h2{
-    color: white;
-    font-weight: 200;
+.hero-content{
+    height: 600px;
 }
 
-h1{
-    font-size: 40px;
-}
-
-h2{
-    font-size: 18px;
+.hero span{
+    display: flex;
+    gap: 20px;
 }
