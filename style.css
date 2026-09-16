@@ -6,20 +6,20 @@
  }
 
  img {
-     display: inline-block; /* permette aall'img di occupare uno spazio specifico e se sono affianco all'altra si posizionano tranquillamente */
+     display: inline-block; /* permette all'img di occupare uno spazio specifico e se sono affianco all'altra si posizionano tranquillamente */
      max-width: 100%;
  }
 
  @font-face {
   font-family: "Mona Sans";
-  src: url("provapratica-animus-lost-memory/assets/fonts/mona-sans.woff2") format("woff2");
+  src: url("assets/fonts/mona-sans.woff2") format("woff2");
   font-weight: 200 900;
   font-display: swap;
   font-feature-settings: "liga" 0;
 }
 @font-face {
   font-family: "Mona Sans Mono";
-  src: url("provapratica-animus-lost-memory/assets/fonts/mona-sans-mono.woff2") format("woff2");
+  src: url("assets/fonts/mona-sans-mono.woff2") format("woff2");
   font-weight: 200 900;
   font-display: swap;
   font-feature-settings: "liga" 0;
@@ -27,40 +27,102 @@
 
 :root{ /* selettore globale, così siamo sicuri che le nostre variabili in modo tale che tutti gli elementi CSS posso utilizzarlo */
     --font-body:"Mona Sans";
+    --font-mono:"Mona Sans Mono"; /* Non si attiva and idk why */
+    --heading-1-font-size:56px;
+    --heading-1-line-height:1.1; /* Equivale al valore del font size per 1.1(110%) */
+    --eyebrow-font-size:14px;
+
     --color-black:#000;
     --color-white:#fff;
-    --color-grey:#C4CCC6;
-    --color-green:#08872B;
+    --color-muted:#58635B;
+    --textcursor-animation:#5FED83;
+    --button-primary-bg-rest:#08872B;
+    --button-primary-fg:#fff;
+    --button-secondary-border-disabled:#C4CCC6;
+    --button-secondary-fg-disabled:#C4CCC6;
     --container-width:1920px;
     --color-border-muted:#191f1b;
+    --spacing-64:64px;
+    --spacing-80-137:80px 137px; /* Spazio interno della hero*/
+    --hero-content-gap:1em;
 }
 
 body{
+    -webkit-font-smoothing:antialiased; /* Per renderlo più simile a figma */
     font-family: var(--font-body);
 }
     
 .hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-image: url("assets/images/Cover background hero.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-color: var(--color-black);
-    color: var(--color-white);    
+    color: var(--color-white);
+    text-align: center;
+    gap:var(--hero-content-gap);
+    padding:var(--spacing-80-137)
 }
 
-.hero p{
-    color: var(--color-grey);
+
+.heading{
+    font-weight: 400; /* lo definiamo regula */
 }
 
-.hero span{
+.heading-size1{
+    font-size: var(--heading-1-font-size);
+    line-height: var(--heading-1-line-height);
+    
+}
+
+.container{
+    max-width:var(--container-width); /* Qui a sto punto non varrebbe la pena mettere 1920px invece di 1440px? Csì se vado oltre mi assicuro di levare il problema e di, alla fine, averne soltanto quello delle misure minori */
+     margin-left: auto;
+     margin-right:auto;
+   /*  Ogni tanto può aiutare a centrare il nostro elemento container, ma solo con una section a tutta larghezza 
+    margin-right: auto; */ 
+}
+
+.hero-content {
+    min-height: 650px;
+    padding: var(--spacing-64);
+    border-left: var(--color-border-muted) 1px solid;
+    border-right: var(--color-border-muted) 1px transparent; /* Serve per eliminare quelle linee di layout che troviamo nel file figma originale del professore, ho messo transparent perché sulla mia image sul lato destro si vedeva*/
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 28px;
-    margin-bottom: 28px;
-    gap: 16px;
+    align-items: center;
+}
+
+
+.eyebrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.42em; /* em ragiona sulla grandezza del sup font parente */
+    font-family: var(--font-mono);
+    font-size: var(--eyebrow-font-size);
+    text-transform: uppercase;
+    letter-spacing:1px;
+    color: var(--color-muted);
+    padding-bottom: 24px;
+}
+
+.eyebrow-cursor-ret{
+    fill:var(--textcursor-animation);
 }
 
 a { text-decoration: none; }
+
+.button-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    padding-top: 28px;
+}
 
 .button-concept{
     padding-left: 20px;
@@ -68,11 +130,11 @@ a { text-decoration: none; }
     padding-top: 6px;
     padding-bottom: 6px;
     border-radius: 6px;
-    background-color: var(--color-green);
-    border: var(--color-green) solid 1px;
-    color:var(--color-white);
+    background-color: var(--button-primary-bg-rest);
+    border: var(--button-primary-bg-rest) solid 1px;
+    color:var(--button-primary-fg);
     font-size: 16px;
-
+    
 }
 
 .button-prototypes{
@@ -81,24 +143,7 @@ a { text-decoration: none; }
     padding-top: 6px;
     padding-bottom: 6px;
     border-radius: 6px;
-    border: var(--color-grey) solid 1px;
-    color:var(--color-grey);
+    border: var(--button-secondary-border-disabled) solid 1px;
+    color:var(--button-secondary-fg-disabled);
     font-size: 16px;
-}
-
-.container{
-    max-width:var(--container-width); /* Qui a sto punto non varrebbe la pena mettere 1920px invece di 1440px? Csì se vado oltre mi assicuro di levare il problema e di, alla fine, averne soltanto quello delle misure minori */
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-   /* margin-left: auto;  Ogni tanto può aiutare a centrare il nostro elemento container, ma solo con una section a tutta larghezza 
-    margin-right: auto; */ 
-}
-
-.hero-content {
-    padding: 64px;
-    border-left: var(--color-border-muted) 1px solid;
-    border-right: var(--color-border-muted) 1px solid; /* Serve per eliminare quelle linee di layout che troviamo nel file figma originale del professore*/
 }
