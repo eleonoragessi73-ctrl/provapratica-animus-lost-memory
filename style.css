@@ -33,7 +33,16 @@
     --eyebrow-font-size:14px;
     --titoletto-author-font-size:14px;
     --descrizione-author-font-size:16px;
-    
+
+    --heading-2-font-size:34px;
+    --heading-2-line-height:1.3;
+
+    --text-200-font-size:16px;
+    --text-200-line-height:1.5;
+
+    --heading-3-font-size:28px;
+    --heading-3-line-height:1.35;
+
     --color-black:#000;
     --color-white:#fff;
     --color-muted:#58635B;
@@ -92,10 +101,23 @@ body{
     font-weight: 400; /* lo definiamo regula */
 }
 
+.heading-secondo{
+    font-weight: 500; /* lo definiamo come altra regola */
+}
+
 .heading-size1{
     font-size: var(--heading-1-font-size);
     line-height: var(--heading-1-line-height);
-    
+}
+
+.headingsize2{
+    font-size: var(--heading-2-font-size);
+    line-height: var(--heading-2-line-height);
+}
+
+.heading-size3{
+    font-size: var(--heading-3-font-size);
+    line-height: var(--heading-3-line-height);
 }
 
 
@@ -218,4 +240,51 @@ a { text-decoration: none; }
 .descrizione{
     font-size: var(--descrizione-author-font-size) ;
     font-family: var(--font-body);
+}
+
+
+.sitemap{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pharagraphs{
+    font-size: var(--text-200-font-size);
+    line-height: var(--text-200-line-height);
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* CAPIRE PK NON SI ALLINEA CENTRATO SENZA QUESTA PROPIETA' */
+
+}
+
+.section-intro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sitemap-river{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap:24px;
+    padding-bottom: var(--padding-48);
+    padding-top: var(--padding-48);
+}
+
+.sitemap-heading{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-right: 128px;
+}
+
+img{
+    max-width: 900px;
+    height: auto;
 }
