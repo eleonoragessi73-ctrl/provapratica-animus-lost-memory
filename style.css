@@ -33,15 +33,31 @@
     --eyebrow-font-size:14px;
     --titoletto-author-font-size:14px;
     --descrizione-author-font-size:16px;
-
     --heading-2-font-size:34px;
     --heading-2-line-height:1.3;
+    --heading-3-font-size:28px;
+    --heading-3-line-height:1.35;
+    --heading-4-font-size:22px;
+    --heading-4-line-height:1.4;
 
     --text-200-font-size:16px;
     --text-200-line-height:1.5;
+    --text-max-width-paraghraphs:900px;
 
-    --heading-3-font-size:28px;
-    --heading-3-line-height:1.35;
+    /* CSS DEL PROF. */
+    --text-100-font-size: 0.875em;
+    --text-100-line-height: 1.5;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 550;
+    --border-width: 1px;
+    --focus-outline-width: 0.25em;
+    --focus-outline-offset: 0.125em;
+    --radius-control: 0.375em;
+    --radius-pill: 100em;
+    --layer-navigation: 90;
+    --layer-skip-link: 100;
+    /* fine css prof. */
+
 
     --color-black:#000;
     --color-white:#fff;
@@ -49,15 +65,17 @@
     --textcursor-animation:#5FED83;
     
     --button-primary-bg-rest:#08872B;
-    -button-primary-bg-hover:#000;
+    --button-primary-bg-hover:#000;
     --button-primary-fg:#fff;
     
     --button-secondary-bg:rgba(255, 255, 255, 0.12);
     --button-secondary-border:rgba(255, 255, 255, 0.12);
     --button-secondary-fg:#C4CCC6;
     
-    --container-width:1920px;
+    --container-width:1280px;
+    --section-intro-description-max-width:400px;
     --color-border-muted:#191f1b;
+    --color-a-accent-hover:#00398f;
     
     --color-focus:#3094ff;
     
@@ -66,7 +84,10 @@
     --padding-48:48px;
     --spacing-64:64px;
     --spacing-80-137:80px 137px; /* Spazio interno della hero*/
+    --padding-80:80px;
     --hero-content-gap:1em;
+    --gap-section-intro-16:16px;
+    --gap-between-introeriver-24:24px;
 }
 
 @media(max-width: 640px) /* Regola di 640px di grandezza viewport max */
@@ -122,7 +143,7 @@ body{
 
 
 .container{
-    max-width:var(--container-width); /* Qui a sto punto non varrebbe la pena mettere 1920px invece di 1440px? Csì se vado oltre mi assicuro di levare il problema e di, alla fine, averne soltanto quello delle misure minori */
+    max-width:var(--container-width);
      margin-left: auto;
      margin-right:auto;
    /*  Ogni tanto può aiutare a centrare il nostro elemento container, ma solo con una section a tutta larghezza 
@@ -141,7 +162,7 @@ body{
 }
 
 
-.eyebrow{
+.eyebrow-hero{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,7 +172,31 @@ body{
     text-transform: uppercase;
     letter-spacing:1px;
     color: var(--color-muted);
-    padding-bottom: 24px;
+    padding-bottom: 14px;
+}
+
+.eyebrow-concept{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.42em; /* em ragiona sulla grandezza del sup font parente */
+    font-family: var(--font-mono);
+    font-size: var(--eyebrow-font-size);
+    text-transform: uppercase;
+    letter-spacing:1px;
+    color: var(--color-muted);
+}
+
+.eyebrow-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.42em; /* em ragiona sulla grandezza del sup font parente */
+    font-family: var(--font-mono);
+    font-size: var(--eyebrow-font-size);
+    text-transform: uppercase;
+    letter-spacing:1px;
+    color: var(--color-muted);
 }
 
 .eyebrow-cursor-ret{
@@ -159,6 +204,15 @@ body{
 }
 
 a { text-decoration: none; }
+
+a:hover{
+color: var(--color-a-accent-hover);
+}
+
+a:focus-visible{
+    outline: 4px solid var(--color-focus); /* Valore per il focus */
+    border-radius: 4px;    
+}
 
 .button{
     padding: 0.6em 1.25em;
@@ -232,7 +286,6 @@ a { text-decoration: none; }
 }
 
 .titoletto{
-    
     font-size: var(--titoletto-author-font-size);
     font-family: var(--font-body);
 }
@@ -242,49 +295,440 @@ a { text-decoration: none; }
     font-family: var(--font-body);
 }
 
-
 .sitemap{
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding:var(--padding-80);
+    gap: var(--gap-between-introeriver-24);
 }
 
-.pharagraphs{
+
+.section-pharagraphs{
     font-size: var(--text-200-font-size);
     line-height: var(--text-200-line-height);
-    align-items: center;
-    justify-content: center;
-    text-align: center; /* CAPIRE PK NON SI ALLINEA CENTRATO SENZA QUESTA PROPIETA' */
-
+    max-width:var(--text-max-width-paraghraphs);
+    text-align:center; /* PK CAPITA SE NON LO METTO? */ 
 }
 
-.section-intro{
+.card-pharagraphs{
+    font-size: var(--text-200-font-size);
+    line-height: var(--text-200-line-height);
+    max-width:var(--text-max-width-paraghraphs);
+}
+
+.intro{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: var(--padding-64);
+    gap:var(--gap-section-intro-16);
 }
 
 .sitemap-river{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+    max-width: var(--container-width);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap:24px;
     padding-bottom: var(--padding-48);
     padding-top: var(--padding-48);
 }
 
-.sitemap-heading{
+.river-content{
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding-right: 128px;
-}
+    justify-content: center;
+    gap: var(--gap-section-intro-16);
+    margin-right: auto;}
 
-img{
-    max-width: 900px;
+.river-image{
+    max-width: 628px;
     height: auto;
 }
+
+
+
+/* CSS HEADER MENU DEL PROF. */
+img {
+    display: inline-block;
+    max-width: 100%;
+} 
+
+[hidden] {
+    display: none !important;
+}
+
+.skip-link {
+    --skip-link-offset-inline: 1em;
+    --skip-link-offset-block: 0.5em;
+    --skip-link-padding: 0.375em 1.25em;
+
+    position: absolute;
+    top: var(--skip-link-offset-block);
+    left: var(--skip-link-offset-inline);
+    z-index: var(--layer-skip-link);
+    padding: var(--skip-link-padding);
+    border-radius: var(--radius-control);
+    background: var(--color-button-primary-bg);
+    color: var(--color-white);
+    transform: translateY(calc(-100% - var(--skip-link-offset-block)));
+}
+
+.skip-link:focus {
+    transform: none;
+    outline: var(--focus-outline-width) solid var(--color-focus);
+    outline-offset: var(--focus-outline-offset);
+}
+
+.navigation {
+    --navigation-height: 3.5em;
+    --navigation-logo-size: 1.5em;
+    --navigation-logo-margin-start: 1em;
+    --navigation-logo-margin-end: 0.5em;
+    --navigation-brand-padding-end: 1em;
+    --navigation-back-arrow-font-size: 1.75em;
+    --navigation-back-arrow-line-height: 1;
+    --navigation-back-arrow-offset: -0.75em;
+    --navigation-title-font-size: var(--text-100-font-size);
+    --navigation-title-line-height: var(--text-100-line-height);
+    --navigation-link-font-size: var(--text-100-font-size);
+    --navigation-link-padding: 1em;
+    --navigation-link-hover-background: #151D17;
+    --navigation-toggle-font-size: 1em;
+    --navigation-toggle-width: 3em;
+    --navigation-toggle-padding: 0.25em 0.75em;
+    --navigation-toggle-open-background: #090D0A;
+    --navigation-icon-size: 1em;
+    --navigation-reveal-duration: 0.5s;
+    --navigation-reveal-easing: ease;
+    --navigation-reveal-offset: -1.25em;
+
+    position: relative;
+    z-index: var(--layer-navigation);
+    font-size: var(--text-200-font-size);
+    line-height: var(--text-200-line-height);
+    color: var(--color-white);
+    background: var(--color-black);
+    border-bottom: var(--border-width) solid var(--color-border-muted);
+}
+
+.navigation a {
+    color: inherit;
+}
+
+.navigation a:focus-visible, .navigation button:focus-visible {
+    outline: var(--focus-outline-width) solid var(--color-focus);
+    outline-offset: var(--focus-outline-offset);
+}
+
+.navigation::after {
+    content: "";
+    position: absolute;
+    top: calc(100% + var(--border-width));
+    left: 0;
+    right: 0;
+    height: var(--border-width);
+    background: var(--color-cursor);
+    pointer-events: none;
+}
+
+.navigation-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.navigation-brand {
+    display: flex;
+    align-items: center;
+    height: calc(var(--navigation-height) - var(--border-width));
+    flex-shrink: 0;
+}
+
+.navigation-logo {
+    display: flex;
+    position: relative;
+    margin-left: var(--navigation-logo-margin-start);
+    margin-right: var(--navigation-logo-margin-end);
+}
+
+.navigation-logo img {
+    display: block;
+    width: var(--navigation-logo-size);
+    height: var(--navigation-logo-size);
+}
+
+.navigation-back-arrow {
+    position: absolute;
+    top: 50%;
+    left: var(--navigation-back-arrow-offset);
+    transform: translateY(-50%);
+    opacity: 0;
+    color: var(--color-muted);
+    font-size: var(--navigation-back-arrow-font-size);
+    line-height: var(--navigation-back-arrow-line-height);
+}
+
+.navigation-logo:hover .navigation-back-arrow {
+    opacity: 1;
+}
+
+.navigation-title {
+    text-decoration: none;
+    font-size: var(--navigation-title-font-size);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--navigation-title-line-height);
+}
+
+.navigation-title span {
+    color: var(--color-muted);
+}
+
+.navigation-menu {
+    width: 100%;
+}
+
+.navigation-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation-list a {
+    display: flex;
+    align-items: center;
+    padding: var(--navigation-link-padding);
+    font-size: var(--navigation-link-font-size);
+    line-height: var(--text-100-line-height);
+    text-decoration: none;
+}
+
+.navigation-list a:hover {
+    color: var(--color-white);
+}
+
+/* Il layout "compatto" dipende se l'attributo popover è presente (su desktop viene rimosso via JS) */
+.navigation:has(.navigation-panel[popover]) {
+    height: var(--navigation-height);
+}
+
+.navigation:has(.navigation-panel[popover]) .navigation-content {
+    height: 100%;
+    flex-wrap: nowrap;
+}
+
+.navigation-menu:has(.navigation-panel[popover]) {
+    width: auto;
+    margin-left: auto;
+}
+
+.navigation-toggle {
+    anchor-name: --navigation-toggle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--navigation-toggle-width);
+    height: 100%;
+    padding: var(--navigation-toggle-padding);
+    font-family: inherit;
+    font-size: var(--navigation-toggle-font-size);
+    line-height: var(--text-100-line-height);
+    cursor: pointer;
+    border: 0;
+    border-left: var(--border-width) solid var(--color-border-muted);
+    background: transparent;
+    color: var(--color-white);
+}
+
+.navigation-icon {
+    display: block;
+    width: var(--navigation-icon-size);
+    height: var(--navigation-icon-size);
+    flex-shrink: 0;
+}
+
+.navigation-icon-close {
+    display: none;
+}
+
+.navigation-label {
+    display: none;
+}
+
+.navigation-panel[popover] {
+    position: fixed;
+    position-anchor: var(--navigation-toggle);
+    inset: auto;
+    top: calc(anchor(bottom) + var(--border-width));
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--color-white);
+    background: var(--color-black);
+    max-height: calc(100dvh - var(--navigation-height));
+    overflow-y: auto;
+}
+
+.navigation-menu:has(:popover-open) .navigation-toggle {
+    background: var(--navigation-toggle-open-background);
+}
+
+.navigation-menu:has(:popover-open) .navigation-icon-open {
+    display: none;
+}
+
+.navigation-menu:has(:popover-open) .navigation-icon-close {
+    display: block;
+}
+
+.navigation-toggle:focus-visible {
+    outline-offset: calc(-1 * var(--focus-outline-offset));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .navigation-panel:popover-open {
+        animation: reveal var(--navigation-reveal-duration) var(--navigation-reveal-easing);
+    }
+    @keyframes reveal {
+        from {
+            opacity: 0;
+            transform: translateY(var(--navigation-reveal-offset));
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Su tablet cambia il layout, ma il popover resta attivo */
+@media (min-width: 48rem) {
+    .navigation {
+        --navigation-height: 4em;
+        --navigation-title-font-size: 1em;
+        --navigation-title-line-height: 1;
+        --navigation-toggle-font-size: var(--text-100-font-size);
+        --navigation-toggle-min-width: 6em;
+        --navigation-toggle-gap: 0.5em;
+        --navigation-list-gap: 0.0625em;
+        --navigation-list-padding: 0.5em 1em;
+        --navigation-link-min-height: 2.5em;
+        --navigation-link-padding: 0.5em 0.75em;
+    }
+    .navigation-brand {
+        padding-right: var(--navigation-brand-padding-end);
+        border-right: var(--border-width) solid var(--color-border-muted);
+    }
+    .navigation-menu:has(.navigation-panel[popover]) {
+        position: relative;
+    }
+    .navigation-toggle {
+        width: max-content;
+        min-width: var(--navigation-toggle-min-width);
+        gap: var(--navigation-toggle-gap);
+        border-right: var(--border-width) solid var(--color-border-muted);
+        font-weight: var(--font-weight-semibold);
+    }
+    .navigation-label {
+        display: inline;
+        white-space: nowrap;
+    }
+    .navigation-panel[popover] {
+        left: auto;
+        right: anchor(right);
+        width: anchor-size(width);
+        border: var(--border-width) solid var(--color-border-muted);
+        border-top: 0;
+    }
+    .navigation-list {
+        display: grid;
+        gap: var(--navigation-list-gap);
+        padding: var(--navigation-list-padding);
+    }
+    .navigation-list a {
+        min-height: var(--navigation-link-min-height);
+        color: var(--color-muted);
+        border-radius: var(--radius-control);
+    }
+    .navigation-list a:hover, .navigation-list a:focus-visible {
+        background: var(--navigation-link-hover-background);
+    }
+}
+
+/* Su desktop JS rimuove popover e gli elementi si dispongono in linea */
+@media (min-width: 63.25rem) {
+    .navigation {
+        --navigation-inline-list-padding: 0 0 0 1em;
+        --navigation-inline-link-padding: 0 0.25em;
+        --navigation-inline-label-padding: 0.25em 0.75em;
+    }
+    .navigation-content {
+        flex-wrap: nowrap;
+        height: calc(var(--navigation-height) - var(--border-width));
+    }
+    .navigation-menu:has(.navigation-panel:not([popover])) {
+        width: auto;
+        margin-left: 0;
+    }
+    .navigation-panel:not([popover]) {
+        position: static;
+        height: 100%;
+        border: 0;
+        overflow: visible;
+    }
+    .navigation-panel:not([popover]) .navigation-list {
+        display: flex;
+        height: 100%;
+        gap: 0;
+        padding: var(--navigation-inline-list-padding);
+    }
+    .navigation-panel:not([popover]) .navigation-list a {
+        height: 100%;
+        padding: var(--navigation-inline-link-padding);
+    }
+    .navigation-panel:not([popover]) .navigation-list a span {
+        padding: var(--navigation-inline-label-padding);
+        border-radius: var(--radius-pill);
+    }
+    .navigation-panel:not([popover]) .navigation-list a:hover, .navigation-panel:not([popover]) .navigation-list a:focus-visible {
+        background: transparent;
+    }
+    .navigation-panel:not([popover]) .navigation-list a:hover span {
+        background: var(--navigation-link-hover-background);
+    }
+    .navigation-panel:not([popover]) .navigation-list a:focus-visible {
+        outline: none;
+    }
+    .navigation-panel:not([popover]) .navigation-list a:focus-visible span {
+        outline: var(--focus-outline-width) solid var(--color-focus);
+        outline-offset: var(--focus-outline-offset);
+    }
+}
+
+/* Destinazioni provvisorie dei link, da completare/sostituire in base al vostro case study */
+.chapters {
+    /* QUESTI PRIME 3 VARIABILI SONO COME UNA MINI ROOT */ 
+    --chapters-padding: 2em 1.5em;
+    --chapters-section-min-height: 4vh;
+    --chapters-section-padding-top: 2em;
+
+    padding: var(--chapters-padding);
+    color: var(--color-white);
+    background: var(--color-black);
+    line-height: var(--text-200-line-height);
+}
+
+.chapters section {
+    min-height: var(--chapters-section-min-height);
+    padding-top: var(--chapters-section-padding-top);
+    border-top: var(--border-width) solid var(--color-border-muted);
+}
+
+.chapters a {
+    color: inherit;
+}
+
+

@@ -6,13 +6,38 @@
         <title>Animus lost memory: Prova pratica Eleonora</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
-
+        <script src="script.js" defer=""></script>
     </head>
 
     <body>
-                
-        <header>
-
+            <!-- CODICE DEL PROFESSORE: CAPITO E MODIFICATO-->   
+        <a class="skip-link" href="#top">Vai al contenuto</a>
+        <header class="navigation">
+            <div class="navigation-content">
+            <div class="navigation-brand">
+                <a class="navigation-logo" href="https://github.com/education" aria-label="GitHub Education">
+                <span class="navigation-back-arrow" aria-hidden="true">‹</span>
+                <img src="assets/images/github-mark.svg" width="24" height="24" alt="" />
+                </a>
+                <a class="navigation-title" href="#top">/Lost memories</a>
+            </div>
+            <div class="navigation-menu">
+                <button class="navigation-toggle" type="button" aria-label="Menu dei capitoli" popovertarget="navigation-panel">
+                <img class="navigation-icon navigation-icon-open" src="assets/images/menu.svg" width="16" height="16" alt="" aria-hidden="true" />
+                <img class="navigation-icon navigation-icon-close" src="assets/images/close.svg" width="16" height="16" alt="" aria-hidden="true" />
+                <span class="navigation-label">Menu dei capitoli</span>
+                </button>
+                <nav id="navigation-panel" class="navigation-panel" popover="auto" aria-label="Capitoli della storia">
+                <ul class="navigation-list">
+                <li><a href="#concept"><span>Concept</span></a></li>
+                <li><a href="#sitemap"><span>Sitemap</span></a></li>
+                <li><a href="#assets"><span>Assets</span></a></li>
+                <li><a href="#dubbiofamoso"><span>Famous doubt</span></a></li>
+                <li><a href="#highlights"><span>Highlights</span></a></li>
+                </ul>
+                </nav>
+            </div>
+            </div>
         </header>
         
         
@@ -21,13 +46,13 @@
             
             <section class="hero"> 
                 <div class="hero-content container hero-content-gap">
-                    <p class="eyebrow">GESSI ELEONORA ・ CFP BAUER ・ A.F. 2025/27
+                    <p class="eyebrow-hero">GESSI ELEONORA ・ CFP BAUER ・ A.F. 2025/27
                         <svg width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect class="eyebrow-cursor-ret" width="8" height="10" fill="#5FED83" />
                         </svg>
                     </p>
                     <h1 class="heading heading-size1">Animus Lost Memory: come una saga possa crescere una persona...</h1>
-                    <span class="button-group"><a href="#concept" class=" button button-primary">Leggi l'articolo studio</a> <a href="#prototypes" class="button button-secondary">Guarda il sito completo ></a> </span>                
+                    <span class="button-group"> <a href="#concept" class=" button button-primary" aria-label="concept">Leggi l'articolo studio</a> <a href="#prototypes" class="button button-secondary" arial-label="prototypes">Guarda il sito completo ></a> </span>                
                 </div>
                 
             </section>
@@ -58,37 +83,65 @@
                 </div>
 
             </div>
+            <section id="concept"> <!-- Continuare il codice -->
+               <div class="intro-concept">
+                    <p class="eyebrow-concept">CONCEPT
+                        <svg width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect class="eyebrow-cursor-ret" width="8" height="10" fill="#5FED83" />
+                        </svg>
+                    </p>
+                    <h2 class="heading-secondo headingsize2">Di chi parla?</h2>
+                    <p class="hero-main-pharagraph">Animus lost memory parla di me (Eleonora) e del come la saga videoludica di Assassin's Creed, inizialmente mi abbia aiutato a risolvere quel sentimento di mancata rappresentazione che avevo da bambina, per poi accompagnarmi nella mia crescita e farmi diventare la donna che sono oggi.</p>
+                </div>
+                <div class="subtitle-concept">
+                        <h3 class="heading-secondo headingsize3">"Lo sviluppo è come un percorso digitale codificato, fatto ad imbuto"</h3>
+                        <p>Il sito si concentra maggiormente su capitoli che hanno avuto più influenza e sul quanto siano stati influenti nei miei ricordi, andandoli a spiegare all’utente come se fosse una sorta di diario personale. Scelta che andrà anche a riprendere, nonché unirsi, con lo stesso percorso che viene utilizzato nei primi giochi chiamato: Simulazione. Dove il subject sarà bloccato e l’utente avrà lo scopo di aiutarlo a uscire, se anche’ss* vuole salvarsi uscendo.</p>
+                </div>
 
-            <section id="concept">
-                <h2>Concept</h2>
+                <aside class="side-section-menu">
+        
+                    <h4>In questa storia</h4>
+                        <nav>
+                        
+                            <!-- Destinazioni aside-->
+                            <a href="#concept">concept</a>
+                            <a href="#sitemap">sitemap</a>
+                            <a href="#assets">assets</a>
+                            <a href="#famousdoubt">famous doubt</a>
+                            <a href="#highlights">highlights</a>
 
+                             
+                        </nav>
+                </aside>
+               
+                
             </section>
 
-            <section id="sitemap" class="sitemap">
+            <section id="sitemap" class="sitemap cointaner">
                 
-                <div class="section-intro">
-                    <p class="eyebrow">SITEMAP
+                <div class="intro">
+                    <p class="eyebrow-section">SITEMAP
                         <svg width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect class="eyebrow-cursor-ret" width="8" height="10" fill="#5FED83" />
                         </svg>
                     </p>
                     <h2 class="heading-secondo headingsize2">La UX fatta a percorso</h2>
-                    <p class="pharagraphs">Il sito  è stato progettato puntando molto sulla UX e seguendo il concept di decodificazione di tutti i ricordi del subject. Essi sono divisi tramite dei capitoli e da dei frammenti principali, prima di concludersi con il salvataggio sia dell’utente che del subject.</p>
+                    <p class="section-pharagraphs">Il sito  è stato progettato puntando molto sulla UX e seguendo il concept di decodificazione di tutti i ricordi del subject. Essi sono divisi tramite dei capitoli e da dei frammenti principali, prima di concludersi con il salvataggio sia dell’utente che del subject.</p>
                 </div>
                 <div class="sitemap-river">
-                    <div class="sitemap-image">
-                        <img src="assets\images\sitemap desktop.jpg" alt="sitemap">
+                    <div class="river-image">
+                        <img src="assets/images/sitemap x desktop.jpg" alt="sitemap-desktop">
                     </div>
-                    <div class="sitemap-heading">
-                        <h3 class="heading-secondo headingsize3">Imbuto, capitoli & Frammenti</h3>
-                        <p class="pharagraphs">Si parte con un introduzione generale del contesto tramite video, successivamente si sceglie il capitolo e finalmente si entra nei 3 frammenti principali. Enviroment: riguarda i luoghi. Characthers: riguarda i personaggi del capitolo. Cutscenes: riguarda una serie di scene e audio specifici del capitolo. Una volta passati tutti, il percorso viene concluso dal soggetto che si mette in soggezzione, sbloccando, tramite una domanda-risposta l’ultimo ricordo da decodificare per poter uscire dalla simulazione.</p>
-                        
-                        <a href="https://www.figma.com/board/1IadqOb7511GnM0J8PKqsv/ANIMUS--LOST-MEMORY-SITEMAP?node-id=0-1&t=qs6HQCfYhqfMDUM2-1" target="_blank">Esplora tutta la storia
-                            <svg width="8" height="10" viewBox="0 0 8 10" fill="red" xmlns="D:\CODING EXAM ANIMUS LOST MEMORY\provapratica-animus-lost-memory\assets\images\link-external.svg">
-                                <rect class="link-sitemap" />
-                             </svg> 
-                        </a>         
-                    </div>
+                    <div class="river-content">
+                            <h3 class="heading-secondo headingsize3">Imbuto, capitoli & Frammenti</h3>
+                            <p class="card-pharagraphs">Si parte con un introduzione generale del contesto tramite video, successivamente si sceglie il capitolo e finalmente si entra nei 3 frammenti principali. Enviroment: riguarda i luoghi. Characthers: riguarda i personaggi del capitolo. Cutscenes: riguarda una serie di scene e audio specifici del capitolo. Una volta passati tutti, il percorso viene concluso dal soggetto che si mette in soggezzione, sbloccando, tramite una domanda e risposta l’ultimo ricordo da decodificare per poter uscire dalla simulazione.</p>
+                            
+                            <a href="assets/images/sitemap desktop.jpg" target="_blank">Esplora tutta la storia
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2545 1.25H18.4375C18.6101 1.25 18.75 1.38991 18.75 1.5625V6.74556C18.75 7.02396 18.4134 7.1634 18.2165 6.96652L16.2879 5.03791L11.6004 9.72541C11.2343 10.0915 10.6407 10.0915 10.2746 9.72541C9.90848 9.3593 9.90848 8.7657 10.2746 8.39959L14.9621 3.71209L13.0335 1.78347C12.8366 1.58661 12.976 1.25 13.2545 1.25ZM4.6875 2.5C3.47938 2.5 2.5 3.47938 2.5 4.6875V15.3125C2.5 16.5206 3.47938 17.5 4.6875 17.5H15.3125C16.5206 17.5 17.5 16.5206 17.5 15.3125V10.9375C17.5 10.4197 17.0803 10 16.5625 10C16.0447 10 15.625 10.4197 15.625 10.9375V15.3125C15.625 15.4851 15.4851 15.625 15.3125 15.625H4.6875C4.51491 15.625 4.375 15.4851 4.375 15.3125V4.6875C4.375 4.51491 4.51491 4.375 4.6875 4.375H9.0625C9.58026 4.375 10 3.95526 10 3.4375C10 2.91974 9.58026 2.5 9.0625 2.5H4.6875Z" fill="currentColor"/>
+                                </svg>
+                            </a>
+                        </div>
 
                 </div>
 
@@ -130,7 +183,7 @@
 
         </footer>
 
-
+        
 
     </body>
     </html>
