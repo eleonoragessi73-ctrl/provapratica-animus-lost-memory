@@ -42,7 +42,8 @@
 
     --text-200-font-size:16px;
     --text-200-line-height:1.5;
-    --text-max-width-paraghraphs:900px;
+    --text-max-width-900-paraghraphs:900px;
+    --text-max-width-500-pharaghraphs:500px;
 
     /* CSS DEL PROF. */
     --text-100-font-size: 0.875em;
@@ -61,7 +62,7 @@
 
     --color-black:#000;
     --color-white:#fff;
-    --color-muted:#58635B;
+    --color-muted:#58635B; 
     --textcursor-animation:#5FED83;
     
     --button-primary-bg-rest:#08872B;
@@ -86,8 +87,9 @@
     --spacing-80-137:80px 137px; /* Spazio interno della hero*/
     --padding-80:80px;
     --hero-content-gap:1em;
-    --gap-section-intro-16:16px;
-    --gap-between-introeriver-24:24px;
+    --gap-16:16px;
+    --gap-24:24px;
+    --gap-48:48px;
 }
 
 @media(max-width: 640px) /* Regola di 640px di grandezza viewport max */
@@ -122,7 +124,7 @@ body{
     font-weight: 400; /* lo definiamo regula */
 }
 
-.heading-secondo{
+.heading-medium{
     font-weight: 500; /* lo definiamo come altra regola */
 }
 
@@ -141,6 +143,11 @@ body{
     line-height: var(--heading-3-line-height);
 }
 
+.heading-size4{
+    font-size: var(--heading-4-font-size);
+    line-height: var(--heading-4-line-height);
+}
+
 
 .container{
     max-width:var(--container-width);
@@ -153,7 +160,7 @@ body{
 .hero-content {
     min-height: 650px;
     padding: var(--spacing-64);
-    border-left: var(--color-border-muted) 1px solid;
+    border-left: var(--color-border-muted) 1px transparent;
     border-right: var(--color-border-muted) 1px transparent; /* Serve per eliminare quelle linee di layout che troviamo nel file figma originale del professore, ho messo transparent perché sulla mia image sul lato destro si vedeva*/
     display: flex;
     flex-direction: column;
@@ -203,7 +210,7 @@ body{
     fill:var(--textcursor-animation);
 }
 
-a { text-decoration: none; }
+a { text-decoration: none;}
 
 a:hover{
 color: var(--color-a-accent-hover);
@@ -261,7 +268,7 @@ a:focus-visible{
 
 .author-course{
     background-color: var(--color-black);
-    gap: 48px;
+    gap: var(--gap-48);
     padding: var(--padding-48);
 }
 
@@ -295,27 +302,106 @@ a:focus-visible{
     font-family: var(--font-body);
 }
 
-.sitemap{
+.concept-section{
+    display: flex;
+    justify-content: center;
+    align-self:flex-start;
+    padding: 0 70px 0 70px;
+   /*  background-color: gold; */
+}
+
+
+.concept-grid{
+    display: grid;
+    grid-template-areas:
+    'context context context context context context context context . side-menu side-menu side-menu';
+    padding: var(--padding-64); /* Non sono molto sicura del padding, da vedere con prof. */
+    gap: var(--gap-48);
+    /* background-color: rgba(255, 0, 0, 55%); */
+}
+
+.concept-context{ 
+    display: grid;
+    grid-area: context;
+    gap: 32px;
+}
+
+.intro-concept{
+    display: flex;
+    flex-direction: column;
+    max-width:750.62px;
+    max-height: 223px;
+    /* background-color: red; */
+    gap: var(--gap-16);
+}
+
+.concept-pharagraph{
+    color: var(--color-muted);
+}
+
+.develope-concept{
+    display: flex;
+    flex-direction: column;
+    max-width:750.62px;
+    gap: var(--gap-24);
+    /* background-color: purple; */
+}
+
+.side-section-menu{
+    display: flex;
+    flex-direction: column;
+    grid-area: side-menu;
+    /* background-color: beige; */
+    max-width:251.48px;
+    gap: 24px;
+}
+
+.menu-section{
+    display: flex;
+    font-size: var(--text-200-font-size);
+    line-height: var(--text-200-line-height);
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    padding-left: 16px;
+    gap:8px; /* Chiedere al prof. se il gap risulta giusto poihé vedo un problema del sistema del design system */
+}
+
+.link-menu{ /* Fatto perche' altrimenti non funziona a livello di eredità (magari vedere cosa fare per renderlo meno pesante di classi */
+    color: var(--color-muted);
+}
+
+.title-side-menu{
+    color: var(--color-black);
+    font-size: var(--heading-4-font-size);
+    line-height: var(--heading-4-line-height);
+}
+
+
+.sections{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding:var(--padding-80);
-    gap: var(--gap-between-introeriver-24);
+    padding-left:var(--padding-80);
+    padding-right: var(--padding-80);
+    gap: var(--gap-24);
+    /* background-color: purple; */
 }
 
 
 .section-pharagraphs{
+    color: var(--color-muted);
     font-size: var(--text-200-font-size);
     line-height: var(--text-200-line-height);
-    max-width:var(--text-max-width-paraghraphs);
+    max-width:var(--text-max-width-900-paraghraphs);
     text-align:center; /* PK CAPITA SE NON LO METTO? */ 
 }
 
 .card-pharagraphs{
     font-size: var(--text-200-font-size);
     line-height: var(--text-200-line-height);
-    max-width:var(--text-max-width-paraghraphs);
+    max-width:var(--text-max-width-500-pharaghraphs);
 }
 
 .intro{
@@ -324,14 +410,23 @@ a:focus-visible{
     align-items: center;
     flex-direction: column;
     padding: var(--padding-64);
-    gap:var(--gap-section-intro-16);
+    gap:var(--gap-16);
 }
 
-.sitemap-river{
+.river{
     max-width: var(--container-width);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap:24px;
+    column-gap:var(--gap-24);
+    padding-bottom: var(--padding-48);
+    padding-top: var(--padding-48);
+}
+
+.river-inverted{
+    max-width: var(--container-width);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap:var(--gap-24);
     padding-bottom: var(--padding-48);
     padding-top: var(--padding-48);
 }
@@ -340,15 +435,21 @@ a:focus-visible{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: var(--gap-section-intro-16);
-    margin-right: auto;}
-
-.river-image{
-    max-width: 628px;
-    height: auto;
+    gap: var(--gap-16);
+    margin-right: auto;
 }
 
+.inverted{
+    background-color:var(--color-black);
+    color: var(--color-white);
+}
 
+.card-pharagraphs-inverted{
+    font-size: var(--text-200-font-size);
+    line-height: var(--text-200-line-height);
+    max-width:var(--text-max-width-500-pharaghraphs);
+    color: var(--color-muted);
+}
 
 /* CSS HEADER MENU DEL PROF. */
 img {
