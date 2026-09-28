@@ -39,6 +39,8 @@
     --heading-3-line-height:1.35;
     --heading-4-font-size:22px;
     --heading-4-line-height:1.4;
+    --heading-5-font-size:20px;
+    --heading-5-line-height:1,3;
 
     --text-200-font-size:16px;
     --text-200-line-height:1.5;
@@ -63,10 +65,11 @@
     --color-black:#000;
     --color-white:#fff;
     --color-muted:#58635B; 
+    --color-primary-accent:#0D6731;
     --textcursor-animation:#5FED83;
     
     --button-primary-bg-rest:#08872B;
-    --button-primary-bg-hover:#000;
+    --button-primary-bg-hover:#08872B;
     --button-primary-fg:#fff;
     
     --button-secondary-bg:rgba(255, 255, 255, 0.12);
@@ -89,6 +92,7 @@
     --hero-content-gap:1em;
     --gap-16:16px;
     --gap-24:24px;
+    --gap-40:40px;
     --gap-48:48px;
 }
 
@@ -103,6 +107,11 @@
 body{
     -webkit-font-smoothing:antialiased; /* Per renderlo più simile a figma */
     font-family: var(--font-body);
+}
+
+ol, ul{
+    margin-left: 1em;
+    gap: var(--gap-16);
 }
     
 .hero{
@@ -146,6 +155,11 @@ body{
 .heading-size4{
     font-size: var(--heading-4-font-size);
     line-height: var(--heading-4-line-height);
+}
+
+.heading-size5{
+    font-size: var(--heading-5-font-size);
+    line-height: var(--heading-5-line-height);
 }
 
 
@@ -239,7 +253,7 @@ a:focus-visible{
 
 .button-primary{
     background-color: var(--button-primary-bg-rest);
-    border: var(--button-primary-bg-rest) solid 1px;
+    border-color: transparent;
     color:var(--button-primary-fg);
     transition: background-color 300ms ease-in-out; /* Esempio di transizione da tenere da conto anche per gli altri elementi/token */
 }
@@ -252,11 +266,13 @@ a:focus-visible{
 
 }
 .button-primary:hover{
+    color: color-mix(in srgb, var(--color-white)) #fff 100%;
     border-color: color-mix(in srgb, var(--button-primary-bg-hover), #000 16%);
     background-color: color-mix(in srgb, var(--button-primary-bg-hover), #000 16%);
 }
 
 .button-secondary:hover{
+    color:var(--button-secondary-fg);
     border-color: color-mix(in srgb, var(--button-primary-bg-hover), #fff 16%);
     background-color: color-mix(in srgb, var(--button-secondary-bg), #fff 6%);
 }
@@ -335,7 +351,7 @@ a:focus-visible{
     gap: var(--gap-16);
 }
 
-.concept-pharagraph{
+.muted-pharagraph{
     color: var(--color-muted);
 }
 
@@ -364,7 +380,7 @@ a:focus-visible{
     justify-content: center;
     align-items: start;
     padding-left: 16px;
-    gap:8px; /* Chiedere al prof. se il gap risulta giusto poihé vedo un problema del sistema del design system */
+    gap:8px; /* Chiedere al prof. se il gap risulta giusto poiché vedo un problema del sistema del design system */
 }
 
 .link-menu{ /* Fatto perche' altrimenti non funziona a livello di eredità (magari vedere cosa fare per renderlo meno pesante di classi */
@@ -395,7 +411,7 @@ a:focus-visible{
     font-size: var(--text-200-font-size);
     line-height: var(--text-200-line-height);
     max-width:var(--text-max-width-900-paraghraphs);
-    text-align:center; /* PK CAPITA SE NON LO METTO? */ 
+    text-align:center;
 }
 
 .card-pharagraphs{
@@ -414,24 +430,49 @@ a:focus-visible{
 }
 
 .river{
-    max-width: var(--container-width);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap:var(--gap-24);
+    /*
+        max-width: var(--container-width);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap:var(--gap-24);
+        padding-bottom: var(--padding-48);
+        padding-top: var(--padding-48);
+    */
+
+    max-width: var(--container-width); /* Vedere cosa ho fatto col prof. */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap:24px;
     padding-bottom: var(--padding-48);
     padding-top: var(--padding-48);
 }
 
+.river-image{
+    max-width: 628px;
+    height: auto;
+}
+
 .river-inverted{
-    max-width: var(--container-width);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap:var(--gap-24);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap:24px;
     padding-bottom: var(--padding-48);
     padding-top: var(--padding-48);
 }
 
 .river-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--gap-16);
+    margin-left: auto;
+}
+
+.river-content-left{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -450,6 +491,62 @@ a:focus-visible{
     max-width:var(--text-max-width-500-pharaghraphs);
     color: var(--color-muted);
 }
+
+.card-title{
+    color: var(--color-black);
+    font-size: var(--heading-5-font-size);
+    line-height: var(--heading-5-line-height);
+}
+
+.card-case-study{
+
+    max-width: 360px;
+    max-height: 251px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap-40);
+
+
+
+
+}
+
+.card-border{
+    width: 100%;
+    height: 2px;
+    background-color:var(--color-primary-accent);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* CSS HEADER MENU DEL PROF. */
 img {
@@ -807,29 +904,6 @@ img {
         outline: var(--focus-outline-width) solid var(--color-focus);
         outline-offset: var(--focus-outline-offset);
     }
-}
-
-/* Destinazioni provvisorie dei link, da completare/sostituire in base al vostro case study */
-.chapters {
-    /* QUESTI PRIME 3 VARIABILI SONO COME UNA MINI ROOT */ 
-    --chapters-padding: 2em 1.5em;
-    --chapters-section-min-height: 4vh;
-    --chapters-section-padding-top: 2em;
-
-    padding: var(--chapters-padding);
-    color: var(--color-white);
-    background: var(--color-black);
-    line-height: var(--text-200-line-height);
-}
-
-.chapters section {
-    min-height: var(--chapters-section-min-height);
-    padding-top: var(--chapters-section-padding-top);
-    border-top: var(--border-width) solid var(--color-border-muted);
-}
-
-.chapters a {
-    color: inherit;
 }
 
 

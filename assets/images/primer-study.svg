@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="810" viewBox="0 0 1440 810">
+  <rect width="1440" height="810" fill="#f0f2f1"/>
+  <rect x="40" y="40" width="1360" height="730" fill="none" stroke="#b7bfb9" stroke-dasharray="8 8"/>
+  <g fill="#435148" font-family="sans-serif" text-anchor="middle">
+    <text x="720" y="330" font-size="24">IMMAGINE SEGNAPOSTO</text>
+    <text x="720" y="422" font-size="56">Studiare il sistema</text>
+    <text x="720" y="486" font-size="28">Tipografia · token · componenti</text>
+  </g>
+</svg>
