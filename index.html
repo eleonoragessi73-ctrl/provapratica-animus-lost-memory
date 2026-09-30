@@ -306,25 +306,86 @@
                     <p class="section-pharagraphs">Per raccontare Sentcell ho progettato una seconda interfaccia: questo case study. Ho studiato Primer Brand e combinato i suoi componenti per dare una forma coerente al racconto.</p>
             </div>
 
-            <div>
-                <img src="assets/images/primer-study.svg" alt="which-tokens">
-            </div>
-
-
-            <div class="card-group">
-
-                <div class="card-case-study"> <!-- Questa sarà la nostra card -->
-                    <div class="card-border"></div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M6.24719 1.875C7.55232 1.875 8.70248 2.54213 9.37415 3.55371C10.0458 2.5422 11.195 1.87503 12.5001 1.875H18.7501C19.0953 1.875 19.3751 2.15482 19.3751 2.5V15.0518C19.3751 15.2182 19.3086 15.3778 19.1906 15.4951C19.0725 15.6124 18.9126 15.6778 18.7462 15.6768L12.3448 15.6338C11.676 15.6293 11.0327 15.8932 10.5597 16.3662L9.8175 17.1084C9.57347 17.3524 9.1778 17.3524 8.93372 17.1084L8.18176 16.3574C7.71294 15.8886 7.0772 15.625 6.41418 15.625H0.00012207C-0.345018 15.625 -0.624878 15.3452 -0.624878 15V2.5C-0.624878 2.15485 -0.345018 1.87504 0.00012207 1.875H6.24719ZM12.5001 3.125C11.1194 3.12504 10.0001 4.24432 10.0001 5.625V15.1934C10.6659 14.6664 11.495 14.378 12.3527 14.3838L18.1251 14.4229V3.125H12.5001ZM0.625122 14.375H6.41418C7.26684 14.375 8.08957 14.6654 8.75012 15.1914L8.74719 5.62305C8.74604 4.24315 7.62709 3.125 6.24719 3.125H0.625122V14.375Z" fill="#08872B"/>
-                    </svg>
+            <div class="breakdownTabs"> <!-- Contenitore della nostra case study -->
+                <div class="breakdownTabs-content container "> <!-- Contenitore degli elementi interni --> <!-- DOMANDA: I BORDER SONO QUELLI DEL FIGMA? -->
                     
-                    <h4 class=" heading headingsize5">Studiare il sistema</h4>
-                    <p class="muted-pharagraph">Sono partito dalla documentazione e dalle pagine GitHub: tipografia, colori, spazi e comportamenti formano un insieme di decisioni. Ho usato Primer Brand come vocabolario per costruire la mia pagina.</p>
+                    <div class="breakdownTabs-visuals"> <!-- Contiene le nostre immagini -->
+                        <img class="breakdownTabs-visual breakdownTabs-visual-study" src="assets/images/primer-study.svg" alt="studiare-il-sistema">
+                        <img class="breakdownTabs-visual breakdownTabs-visual-layout" src="assets/images/primer-layout.svg" alt="componi-la-pagina">
+                        <img class="breakdownTabs-visual breakdownTabs-visual-check" src="assets/images/primer-check.svg" alt="verificare-il-risultato">
+
+                    </div>
+    
+                    <ul class="breakdownTabs-list"> <!-- Contiene la lista delle notre card -->
+        
+                        <li class="breakdownTabs-item is-selected" id="breakdownTabs-item-study"> <!-- Questa sarà la nostra card study -->
+                            
+                            <button class="breakdownTabs-button" type="button">
+                                <!-- Contenitore per la nostra icona -->
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M6.24719 1.875C7.55232 1.875 8.70248 2.54213 9.37415 3.55371C10.0458 2.5422 11.195 1.87503 12.5001 1.875H18.7501C19.0953 1.875 19.3751 2.15482 19.3751 2.5V15.0518C19.3751 15.2182 19.3086 15.3778 19.1906 15.4951C19.0725 15.6124 18.9126 15.6778 18.7462 15.6768L12.3448 15.6338C11.676 15.6293 11.0327 15.8932 10.5597 16.3662L9.8175 17.1084C9.57347 17.3524 9.1778 17.3524 8.93372 17.1084L8.18176 16.3574C7.71294 15.8886 7.0772 15.625 6.41418 15.625H0.00012207C-0.345018 15.625 -0.624878 15.3452 -0.624878 15V2.5C-0.624878 2.15485 -0.345018 1.87504 0.00012207 1.875H6.24719ZM12.5001 3.125C11.1194 3.12504 10.0001 4.24432 10.0001 5.625V15.1934C10.6659 14.6664 11.495 14.378 12.3527 14.3838L18.1251 14.4229V3.125H12.5001ZM0.625122 14.375H6.41418C7.26684 14.375 8.08957 14.6654 8.75012 15.1914L8.74719 5.62305C8.74604 4.24315 7.62709 3.125 6.24719 3.125H0.625122V14.375Z" fill="currentColor"/>
+                                </svg>
+                                
+                                <span class="breakdownTabs-title">
+                                    <span class="text-size-350">Studiare il sistema</span>
+                                    <svg class="icon breakdownTabs-toggle" xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                                        <path d="M5.44532 6.09258L0.13517 0.782424C-0.153564 0.493691 0.0509291 4.82077e-07 0.459261 4.64228e-07L11.0796 0C11.4879 -1.78487e-08 11.6924 0.493689 11.4037 0.782423L6.0935 6.09258C5.91451 6.27157 5.62431 6.27157 5.44532 6.09258Z" fill="currentColor"/>
+                                    </svg>
+
+                                </span>
+
+                            </button>
+                                    
+                            <p class="muted-pharagraph breakdownTabs-text">Sono partito dalla documentazione e dalle pagine GitHub: tipografia, colori, spazi e comportamenti formano un insieme di decisioni. Ho usato Primer Brand come vocabolario per costruire la mia pagina.</p>
+
+                        </li>
+
+                        <li class="breakdownTabs-item" id="breakdownTabs-item-layout"> <!-- Questa sarà la nostra card layout -->
+                            
+                            <button class="breakdownTabs-button" type="button">
+                                <!-- Contenitore per la nostra icona -->
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 21 20" fill="currentColor">
+                                        <path d="M17.5 1.04199C18.4204 1.04199 19.1668 1.78768 19.167 2.70801V16.042C19.1668 16.9623 18.4204 17.708 17.5 17.708H8.33301C7.41283 17.7078 6.66717 16.9622 6.66699 16.042V2.70801C6.66717 1.78782 7.41283 1.04221 8.33301 1.04199H17.5ZM8.33301 2.29199C8.10319 2.29221 7.91717 2.47817 7.91699 2.70801V16.042C7.91717 16.2718 8.10319 16.4578 8.33301 16.458H17.5C17.73 16.458 17.9168 16.272 17.917 16.042V2.70801C17.9168 2.47804 17.73 2.29199 17.5 2.29199H8.33301ZM4.30371 2.56641C4.61245 2.41204 4.98821 2.53697 5.14258 2.8457C5.2967 3.15424 5.17161 3.52912 4.86328 3.68359C4.67288 3.7788 4.61632 3.83096 4.59961 3.85156C4.59587 3.85618 4.59464 3.85842 4.59277 3.86426C4.58999 3.87303 4.58304 3.90059 4.58301 3.95801V14.792C4.58303 14.8494 4.58999 14.877 4.59277 14.8857C4.59464 14.8916 4.59586 14.8938 4.59961 14.8984C4.61632 14.919 4.67287 14.9712 4.86328 15.0664C5.17161 15.2209 5.29669 15.5958 5.14258 15.9043C4.98821 16.213 4.61245 16.338 4.30371 16.1836C4.07754 16.0705 3.82044 15.9217 3.62891 15.6855C3.41687 15.4241 3.33306 15.1197 3.33301 14.792V3.95801C3.33307 3.63029 3.41687 3.32595 3.62891 3.06445C3.82044 2.8283 4.07753 2.67952 4.30371 2.56641ZM0.9375 3.83398C1.23625 3.66137 1.61823 3.76381 1.79102 4.0625C1.96354 4.36113 1.86191 4.74315 1.56348 4.91602C1.43888 4.98809 1.34971 5.05822 1.29688 5.12012C1.25076 5.17421 1.25 5.19898 1.25 5.20801V13.542C1.25 13.5512 1.25106 13.5761 1.29688 13.6299C1.34971 13.6918 1.43888 13.7619 1.56348 13.834C1.86191 14.0069 1.96354 14.3889 1.79102 14.6875C1.61823 14.9862 1.23625 15.0886 0.9375 14.916C0.608492 14.7257 0.000174553 14.2975 0 13.542V5.20801C0.000174638 4.45246 0.608492 4.02431 0.9375 3.83398Z" fill="currentColor"/>
+                                </svg>
+                                
+                                <span class="breakdownTabs-title">
+                                    <span class="text-size-350">Comporre la pagina</span>
+                                    <svg class="icon breakdownTabs-toggle" xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="currentColor">
+                                        <path d="M5.44532 6.09258L0.13517 0.782424C-0.153564 0.493691 0.0509291 4.82077e-07 0.459261 4.64228e-07L11.0796 0C11.4879 -1.78487e-08 11.6924 0.493689 11.4037 0.782423L6.0935 6.09258C5.91451 6.27157 5.62431 6.27157 5.44532 6.09258Z" fill="currentColor"/>
+                                    </svg>
+
+                                </span>
+
+                            </button>
+                                    
+                            <p class="muted-pharagraph breakdownTabs-text">Ho selezionato gli elaborati e dato a ogni contenuto una forma: Pillar per i livelli di lettura, Tabs per le viste, Testimonial per una riflessione. Gerarchie e spazi collegano i capitoli; sul mobile la composizione cambia disposizione.</p>
+
+                        </li>
+        
+                        <li class="breakdownTabs-item" id="breakdownTabs-item-check"> <!-- Questa sarà la nostra card layout -->
+                            
+                            <button class="breakdownTabs-button" type="button">
+                                <!-- Contenitore per la nostra icona -->
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M5.80867 3.51698C6.05276 3.27303 6.44842 3.27294 6.69246 3.51698C6.93621 3.76104 6.93632 4.15678 6.69246 4.40077L1.71785 9.37538L6.69246 14.35C6.93632 14.594 6.93621 14.9897 6.69246 15.2338C6.44842 15.4778 6.05276 15.4777 5.80867 15.2338L0.391676 9.81776C0.147599 9.57369 0.147599 9.17708 0.391676 8.933L5.80867 3.51698ZM12.0587 3.51698C12.3028 3.27303 12.6984 3.27294 12.9425 3.51698L18.3585 8.933C18.6026 9.17708 18.6026 9.57369 18.3585 9.81776L12.9425 15.2338C12.6984 15.4778 12.3028 15.4777 12.0587 15.2338C11.8146 14.9897 11.8146 14.5941 12.0587 14.35L17.0333 9.37538L12.0587 4.40077C11.8146 4.15669 11.8146 3.76106 12.0587 3.51698Z" fill="currentColor"/>
+                                </svg>
+                                
+                                <span class="breakdownTabs-title">
+                                    <span class="text-size-350">Verificare il risultato</span>
+                                    <svg class="icon breakdownTabs-toggle" xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="currentColor">
+                                        <path d="M5.44532 6.09258L0.13517 0.782424C-0.153564 0.493691 0.0509291 4.82077e-07 0.459261 4.64228e-07L11.0796 0C11.4879 -1.78487e-08 11.6924 0.493689 11.4037 0.782423L6.0935 6.09258C5.91451 6.27157 5.62431 6.27157 5.44532 6.09258Z" fill="currentColor"/>
+                                    </svg>
+
+                                </span>
+
+                            </button>
+                                    
+                            <p class="muted-pharagraph breakdownTabs-text">Il lavoro continua nel browser: controllo la leggibilità, i collegamenti e i controlli da tastiera a larghezze diverse. La prova pratica richiede anche di saper spiegare e modificare il codice, mantenere Figma e sito coerenti e pubblicare il lavoro con GitHub Pages.</p>
+
+                        </li>
+                    </ul>
+
                 </div>
-
-
-
 
 
             </div>
