@@ -315,6 +315,7 @@ a:focus-visible{
     background-color: var(--color-black);
     gap: var(--gap-48);
     padding: var(--padding-48);
+    
 }
 
 .author-group{
@@ -325,6 +326,8 @@ a:focus-visible{
     padding-bottom: var(--padding-24);
     padding-top: var(--padding-24);
     gap: 24px;
+    flex-wrap: wrap; /* Brevemente, permette di mandare elementi a capo, detto wrappare, utile per ragionare sul mobile prima delle media query */
+
 }
 
 .author-card{
@@ -335,6 +338,8 @@ a:focus-visible{
     background-color: var(--color-black);
     color: var(--color-white);
     gap: 8px;
+    flex-shrink: 1; /* Serve per distinguere gli spazi quando sono stretti  */
+
 }
 
 .titoletto{
@@ -476,6 +481,8 @@ a:focus-visible{
     gap:24px;
     padding-bottom: var(--padding-48);
     padding-top: var(--padding-48);
+    flex-wrap: wrap;
+
 }
 
 .river-image{
@@ -491,6 +498,8 @@ a:focus-visible{
     gap:24px;
     padding-bottom: var(--padding-48);
     padding-top: var(--padding-48);
+    flex-wrap: wrap;
+
 }
 
 .river-content{
@@ -499,6 +508,7 @@ a:focus-visible{
     justify-content: center;
     gap: var(--gap-16);
     margin-left: auto;
+    flex-shrink: 1;
 }
 
 .river-content-left{
@@ -507,6 +517,7 @@ a:focus-visible{
     justify-content: center;
     gap: var(--gap-16);
     margin-right: auto;
+    flex-shrink: 1;
 }
 
 .inverted{
