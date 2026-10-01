@@ -32,7 +32,6 @@
     --heading-1-line-height:1.1; /* Equivale al valore del font size per 1.1(110%) */
     --eyebrow-font-size:14px;
     --titoletto-author-font-size:14px;
-    --descrizione-author-font-size:16px;
     --heading-2-font-size:34px;
     --heading-2-line-height:1.3;
     --heading-3-font-size:28px;
@@ -40,7 +39,23 @@
     --heading-4-font-size:22px;
     --heading-4-line-height:1.4;
     --heading-5-font-size:20px;
-    --heading-5-line-height:1,3;
+    --heading-5-line-height:1.3;
+
+    /* FONT THINGS X CITAZIONE */
+    --font-size-64-mark:64px;
+    --line-height-mark:1.0;
+
+    --font-size-32-quote:32px;
+    --line-height-150-quote:1.5;
+    --spacing-quote:-0.64px;
+
+    --font-size-title-figcaption:14px;
+    --line-height-title-figcaption:1.5;
+    --spacing-title-figcaption:0.15px;
+
+    --font-size-desc-figcaption:16px;
+    --line-height-desc-figcaption:1.6;
+    --spacing-desc-figcaption:0.16px;
 
     --text-200-font-size:16px;
     --text-200-line-height:1.5;
@@ -69,7 +84,8 @@
     --color-muted:#58635B; 
     --color-primary-accent:#0D6731;
     --colory-primary-accent-disabled:#E4EBE6;
-    --textcursor-animation:#5FED83;
+    --textcursor-animation:#08872B;
+    --mark-container-bg:#EBF9F4;
     
     --button-primary-bg-rest:#08872B;
     --button-primary-bg-hover:#08872B;
@@ -82,6 +98,7 @@
     --container-width:1280px;
     --section-intro-description-max-width:400px;
     --color-border-muted:#191f1b;
+    --color-border-muted-quote:#B6BFB8;
     --color-a-accent-hover:#00398f;
     
     --color-focus:#3094ff;
@@ -95,10 +112,13 @@
     --spacing-80-137:80px 137px; /* Spazio interno della hero*/
     --padding-80:80px;
     --hero-content-gap:1em;
+    --gap-6:6px;
+    --gap-10:10px;
     --gap-16:16px;
     --gap-24:24px;
     --gap-40:40px;
     --gap-48:48px;
+    --gap-120:120px;
 
     --icon-size:1em;
     --icon-color:#08872B;
@@ -121,7 +141,8 @@ ol, ul{
     margin-left: 1em;
     gap: var(--gap-16);
 }
-    
+
+
 .hero{
     display: flex;
     justify-content: center;
@@ -505,6 +526,100 @@ a:focus-visible{
     font-size: var(--heading-5-font-size);
     line-height: var(--heading-5-line-height);
 }
+
+
+
+.image-container{
+    width: 1280px;
+    height: auto;
+    aspect-ratio: 8/5;
+}
+
+.quote-group{
+    padding: var(--padding-64);
+}
+
+.quote-author{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: var(--gap-120);
+    padding-bottom: 88px;
+    /* background-color: yellow; */
+}
+
+.quote-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family:var(--font-mono);
+    gap: var(--gap-48);
+    
+
+}
+
+.mark-box{
+    width:56px;
+    height: 56px;
+    display: flex;
+    align-items: flex-start;
+    background-color: var(--mark-container-bg);
+    border-radius:12px;
+}
+
+.mark{
+    color: var(--textcursor-animation);
+    font-size:var(--font-size-64-mark); /* e' giusto? */
+    line-height: var(--line-height-mark);
+}
+
+.quote{
+    max-width: 718px;
+    font-size: var(--font-size-32-quote);
+    line-height: var(--line-height-150-quote);
+    letter-spacing: var(--spacing-quote);
+    align-self: stretch;
+}
+
+.eyebrow-figcaption{ /* MODIFICHE SPECIFICHE EYEBROW X CITAZIONE */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: var(--eyebrow-font-size);
+    text-transform: uppercase;
+    color: var(--color-black);
+    letter-spacing: var(--spacing-title-figcaption);
+    line-height: var(--line-height-title-figcaption);
+}
+
+.figcaption-wrapper{
+    width: 312px;
+    border-top: var(--color-border-muted-quote) 1px solid; /* usare questa come riferimento x scrivere la proprieta' border se non ci ricordiamo*/
+    padding-top: var(--padding-24);
+    /*background-color: yellow;*/
+}
+
+.figcaption-spacing{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* Mi occupano tutta la larghezza del loro contenitore */
+    gap: var(--gap-6);
+   /* background-color: purple; */
+}
+
+.quote-pharagraphs{
+    color: var(--color-muted);
+    font-size: var(--font-size-desc-figcaption);
+    line-height: var(--line-height-desc-figcaption);
+    letter-spacing: var(--spacing-desc-figcaption);
+}
+
+
+
+
+
 
 .breakdownTabs{
     display: flex;
