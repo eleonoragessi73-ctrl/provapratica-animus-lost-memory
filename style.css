@@ -122,6 +122,12 @@
 
     --icon-size:1em;
     --icon-color:#08872B;
+    --icon-before-footer-color:#fff;
+    --border-color-box-backontop:#262C28;
+    --footer-bg-color:#0F1511;
+    --icon-size-before-footer-backontop:16px;
+    --icon-size-before-footer-logo:32px;
+    --backontop-button-size:44px;
 }
 
 @media(max-width: 640px) /* Regola di 640px di grandezza viewport max */
@@ -268,8 +274,16 @@ a:focus-visible{
     padding: 0.6em 1.25em;
     border-radius: 6px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     letter-spacing: 0.16px;
+    
+}
+
+.button-target-blank{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
 }
 
 .button-group{
@@ -461,6 +475,7 @@ a:focus-visible{
     flex-direction: column;
     padding: var(--padding-64);
     gap:var(--gap-16);
+    text-align: center;
 }
 
 .river{
@@ -488,6 +503,11 @@ a:focus-visible{
 .river-image{
     max-width: 628px;
     height: auto;
+}
+
+.river-video{
+    border: var(--color-white) 1px solid;
+    box-shadow: 0px 0px 3px 0px var(--color-white);
 }
 
 .river-inverted{
@@ -674,10 +694,6 @@ a:focus-visible{
     flex-direction: row;
     gap: var(--gap-40);
     margin: auto;
-
-    /* Mobile */
-
-
 }
 
 .breakdownTabs-item{
@@ -715,6 +731,7 @@ a:focus-visible{
 }
 
 .breakdownTabs-button{
+    /* primo paragrafo serve x resettare il css del bottone */
     border: 0;
     background: none;
     color: inherit;
@@ -735,7 +752,9 @@ a:focus-visible{
     align-items: center;
 }
 
-
+.display{
+    display: none;
+}
 
 
 
