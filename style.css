@@ -100,13 +100,13 @@
     --color-border-muted:#191f1b;
     --color-border-muted-quote:#B6BFB8;
     --color-a-accent-hover:#00398f;
-    
     --color-focus:#3094ff;
     
     --padding-24:24px;
     --padding-64:64px;
     --padding-48:48px;
-    --padding-60:60px; /* Padding per casestudy uguale per più valori */
+
+     /* Padding per casestudy uguale per più valori */
     --spacing-64:64px;
     --spacing-40:40px;
     --spacing-80-137:80px 137px; /* Spazio interno della hero*/
@@ -116,9 +116,31 @@
     --gap-10:10px;
     --gap-16:16px;
     --gap-24:24px;
-    --gap-40:40px;
     --gap-48:48px;
     --gap-120:120px;
+
+    /* REGOLE PER BREAKDOWNS DESKTOP */    
+    --breakdownTabs-item-desktop-gap-40:2.5em; /* (40px) X breakdownTabs-list, distanza tra cards */  
+    --breakdownTabs-desktop-content-padding-top:3.75em; /* (60px) Fatto 60 x logica e comodita', i valori son divisi perche' in mobile lo sono */
+    --breakdownTabs-desktop-content-padding-bottom:60px;  /* (60px) Fatto 60 x logica e comodita', i valori son divisi perche' in mobile lo sono */
+    --breakdownTabs-desktop-content-padding-right-left:5em; /* (80px) */ 
+    --breakdownTabs-desktop-button-padding-top:1.75em; /* (28px) distanza tra card e linea selected or not selected */
+    --breakdownTabs-desktop-item-row-gap:0.75em; /* (12px) gap di breakdownTabs-item, ovvero spazio tra titolo e descrizione */
+
+    /* REGOLE PER BREAKDOWNTABS MOBILE */
+    /* SONO SCRITTI IN ORDINE COME SOPRA X IL DESKTOP */
+
+    --breakdownTabs-mobile-button-gap-24:1.5em; /* (24px) spazio tra toggle e testo */
+   
+    --breakdownTabs-item-mobile-padding-24:1.5em; /* (24px) Spazio fra card (padding sotto)*/    
+    --breakdownTabs-mobile-content-padding-top:2.25em; /* (36px) Sostituto x mobile di content-padding-top */
+    --breakdownTabs-mobile-content-padding-bottom:2.5em;  /* (40px) Sostituto x mobile di content-padding-bottom */
+    --breakdownTabs-mobile-content-padding-right-left:1.25em; /* (20px) Sostituto x mobile di content-padding-left e right */
+    --breakdownTabs-mobile-button-padding-top:3.5em; /* (56px) Sostituto di br...-button-padding-top */
+    --breakdownTabs-mobile-item-row-gap:0.75em; /* (12px) Sostituto di br...-item-row-gap. Sarebbe padding su figma ma per comodita' e logica ho lasciato gap */
+
+
+
 
     --icon-size:1em;
     --icon-color:#08872B;
@@ -648,19 +670,20 @@ a:focus-visible{
 }
 
 
-
-
-
-
 .breakdownTabs{
     display: flex;
     margin: auto;
 }
 
 .breakdownTabs-content{
-    padding: var(--padding-60) 80px; /* Messo 60 per comodità e logica di valori */
-   /* background-color: red; */
+    padding-top: var(--breakdownTabs-desktop-content-padding-top); /* Messo 60 per comodità e logica di valori */
+    padding-bottom: var(--breakdownTabs-desktop-content-padding-bottom);
+    padding-left: var(--breakdownTabs-desktop-content-padding-right-left);
+    padding-right: var(--breakdownTabs-desktop-content-padding-right-left);
+   
+    /* background-color: red; */
 }
+
 
 .breakdownTabs-visuals{
     display: flex;
@@ -691,26 +714,90 @@ a:focus-visible{
 
 .breakdownTabs-list{
     display: flex;
-    flex-direction: row;
-    gap: var(--gap-40);
+    flex-direction: column;
+    gap: var(--breakdownTabs-item-desktop-gap-40);
     margin: auto;
 }
 
-.breakdownTabs-item{
+.breakdownTabs-item{ /* CLASSE DELLE SINGOLE CARD */
+    position: relative; /* la posizione è relativa a...questa card */
 
     max-width: 360px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding-top: 28px;
-    box-shadow: 0 -1px 0 0 var(--colory-primary-accent-disabled);
-    gap: 12px;
+    align-items: center;
+    padding-top: var(--breakdownTabs-desktop-button-padding-top);
+    gap: var(--breakdownTabs-mobile-item-row-gap);
 
 }
 
-.is-selected{
-    box-shadow: 0 -2px 0 0 var(--color-primary-accent);
+/*::Before è usato come pseudoclasse per creare la linea di selected delle card. Utilizziamo questa così poi non abbiamo problemi con il responsive e la property transform.*/
 
+.breakdownTabs-item::before{ /* creo la linea "disabled/not selected" */
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%; /* indica il 100% della larghezza che ricopre del genitore/contenitore */
+    height: 1px;
+   
+    background-color: var(--colory-primary-accent-disabled);
+
+}
+
+.breakdownTabs-item.is-selected::before{ /* Creo la classe specifica con cui dovrà cambiare con la linea selected */
+    transform: scaleY(3); /* scelto 3 come valore perche' la differenza tra il 2 (px figma) e visivamente non e' molta cosi' per UX ho fatto questa scelta */
+    transform-origin: top ;
+    
+    background-color: var(--color-primary-accent);
+
+}
+
+@media (hover: hover) and (pointer:fine) { /* indica l'hover desktop e il touch mobile rendendoli veri e funzionanti */
+
+    .breakdownTabs-item:hover::before{
+        background-color: var(--color-primary-accent);
+        transform: scaleY(3);
+    }
+
+    /* .breakdownTabs:has(.breakdownTabs-item:hover) 
+    .breakdownTabs-item.is-selected::before {
+        transform: scaleY(1);
+        background-color: var(--colory-primary-accent-disabled);
+    } BEST PRACTICE TENTATIVO FALLITO, SERVE ::AFTER E MARGIN X SISTEMARE*/
+
+}
+
+/* sono intervenuta così poiché con flexbox era semplice toccare le singole card ma a livello di passaggio tra accordion e layout fatto da me le cose si complicavano cosi' ho usato il selettore :has per indicare che ha quelle colonne e spostare il focus della regola sul min-width invece di doverne sacrificare una o scrivere doppie regole */
+
+/* comportamento desktop btw */
+@media (min-width: 1000px) { /* RICORDA: MIN-(//) significa da X IN SU CONSIDERO.... */
+    .breakdownTabs-list:has(.breakdownTabs-item) {
+        flex: 1; /* ALLA GROSSOLANA è il fr di flexbox. Esso dispone le mie card in base ad un rapport di 1/3 dello spazio disponibile */
+        display: flex;
+        flex-direction: row;
+        gap: var(--breakdownTabs-item-desktop-gap-40);
+    }
+
+    .breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text {
+        display: block;
+    }
+
+    .breakdownTabs-toggle{
+        display: none;
+    }
+
+    
+
+    .breakdownTabs-item{
+        color: var(--color-muted);
+    }
+
+    .breakdownTabs-item.is-selected{
+        color: var(--color-black);
+    }
 }
 
 
@@ -743,10 +830,30 @@ a:focus-visible{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: var(--breakdownTabs-desktop-item-row-gap);
 }
 
-.breakdownTabs-title{
+.breakdownTabs-button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+}
+
+.breakdownTabs-button:focus-visible {
+    outline: none;
+}
+
+
+.breakdownTabs-item:has(.breakdownTabs-button:focus-visible) {
+    outline: var(--focus-outline-width) solid var(--color-focus);
+    outline-offset: var(--focus-outline-offset);
+}
+
+
+
+
+.breakdownTabs-title{ /* contenitore genitore con triangolino e titolo */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -756,7 +863,14 @@ a:focus-visible{
     display: none;
 }
 
+/* comportamento accordion */
+.breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text{
+    display: none;
+}
 
+.breakdownTabs-ready .breakdownTabs-toggle{
+    display: block;
+}
 
 
 
