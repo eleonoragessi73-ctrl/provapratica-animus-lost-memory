@@ -137,7 +137,7 @@
     --breakdownTabs-mobile-content-padding-bottom:2.5em;  /* (40px) Sostituto x mobile di content-padding-bottom */
     --breakdownTabs-mobile-content-padding-right-left:1.25em; /* (20px) Sostituto x mobile di content-padding-left e right */
     --breakdownTabs-mobile-button-padding-top:3.5em; /* (56px) Sostituto di br...-button-padding-top */
-    --breakdownTabs-mobile-item-row-gap:0.75em; /* (12px) Sostituto di br...-item-row-gap. Sarebbe padding su figma ma per comodita' e logica ho lasciato gap */
+    --breakdownTabs-mobile-item-row-gap:0.75px; /* (12px) Sostituto di br...-item-row-gap. Sarebbe padding su figma ma per comodita' e logica ho lasciato gap */
 
 
 
@@ -233,6 +233,7 @@ ol, ul{
     padding: var(--spacing-64);
     border-left: var(--color-border-muted) 1px transparent;
     border-right: var(--color-border-muted) 1px transparent; /* Serve per eliminare quelle linee di layout che troviamo nel file figma originale del professore, ho messo transparent perché sulla mia image sul lato destro si vedeva*/
+    gap: var(--hero-content-gap);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -725,9 +726,9 @@ a:focus-visible{
     max-width: 360px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding-top: var(--breakdownTabs-desktop-button-padding-top);
-    gap: var(--breakdownTabs-mobile-item-row-gap);
+    gap: var(--breakdownTabs-desktop-item-row-gap);
 
 }
 
@@ -771,32 +772,13 @@ a:focus-visible{
 }
 
 /* sono intervenuta così poiché con flexbox era semplice toccare le singole card ma a livello di passaggio tra accordion e layout fatto da me le cose si complicavano cosi' ho usato il selettore :has per indicare che ha quelle colonne e spostare il focus della regola sul min-width invece di doverne sacrificare una o scrivere doppie regole */
-
-/* comportamento desktop btw */
 @media (min-width: 1000px) { /* RICORDA: MIN-(//) significa da X IN SU CONSIDERO.... */
     .breakdownTabs-list:has(.breakdownTabs-item) {
         flex: 1; /* ALLA GROSSOLANA è il fr di flexbox. Esso dispone le mie card in base ad un rapport di 1/3 dello spazio disponibile */
         display: flex;
         flex-direction: row;
         gap: var(--breakdownTabs-item-desktop-gap-40);
-    }
-
-    .breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text {
-        display: block;
-    }
-
-    .breakdownTabs-toggle{
-        display: none;
-    }
-
     
-
-    .breakdownTabs-item{
-        color: var(--color-muted);
-    }
-
-    .breakdownTabs-item.is-selected{
-        color: var(--color-black);
     }
 }
 
@@ -833,24 +815,14 @@ a:focus-visible{
     gap: var(--breakdownTabs-desktop-item-row-gap);
 }
 
-.breakdownTabs-button::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-}
-
 .breakdownTabs-button:focus-visible {
     outline: none;
 }
-
 
 .breakdownTabs-item:has(.breakdownTabs-button:focus-visible) {
     outline: var(--focus-outline-width) solid var(--color-focus);
     outline-offset: var(--focus-outline-offset);
 }
-
-
 
 
 .breakdownTabs-title{ /* contenitore genitore con triangolino e titolo */
@@ -863,7 +835,6 @@ a:focus-visible{
     display: none;
 }
 
-/* comportamento accordion */
 .breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text{
     display: none;
 }
@@ -907,7 +878,7 @@ img {
     z-index: var(--layer-skip-link);
     padding: var(--skip-link-padding);
     border-radius: var(--radius-control);
-    background: var(--color-button-primary-bg);
+    background: var(--button-primary-bg-rest);
     color: var(--color-white);
     transform: translateY(calc(-100% - var(--skip-link-offset-block)));
 }
@@ -1060,7 +1031,7 @@ img {
 }
 
 .navigation-toggle {
-    anchor-name: --navigation-toggle;
+    anchor-name: var(--navigation-toogle);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1076,6 +1047,8 @@ img {
     background: transparent;
     color: var(--color-white);
 }
+
+/* NON HO BEN CAPITO COSA MI CHIEDE QUI??? */
 
 .navigation-icon {
     display: block;
