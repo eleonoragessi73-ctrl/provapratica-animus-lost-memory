@@ -28,17 +28,17 @@
 :root{ /* selettore globale, così siamo sicuri che le nostre variabili in modo tale che tutti gli elementi CSS posso utilizzarlo */
     --font-body:"Mona Sans";
     --font-mono:"Mona Sans Mono";
-    --heading-1-font-size:56px;
+    --heading-1-font-size:3.5rem; /* 56px */
     --heading-1-line-height:1.1; /* Equivale al valore del font size per 1.1(110%) */
-    --eyebrow-font-size:14px;
-    --titoletto-author-font-size:14px;
-    --heading-2-font-size:34px;
+    --eyebrow-font-size:14px; /* 0.875rem */
+    --titoletto-author-font-size:14px; /* 0.875rem */ 
+    --heading-2-font-size:2.125rem; /* 34px */
     --heading-2-line-height:1.3;
-    --heading-3-font-size:28px;
+    --heading-3-font-size:28px; /* 1.75rem */
     --heading-3-line-height:1.35;
-    --heading-4-font-size:22px;
+    --heading-4-font-size:22px; /* 1.375rem */
     --heading-4-line-height:1.4;
-    --heading-5-font-size:20px;
+    --heading-5-font-size:20px; /* 1.25rem */
     --heading-5-line-height:1.3;
 
     /* FONT THINGS X CITAZIONE */
@@ -82,6 +82,7 @@
     --color-black:#000;
     --color-white:#fff;
     --color-muted:#58635B; 
+    --color-muted-inverted:#A4AEA6; /* colore scelto da figma */
     --color-primary-accent:#0D6731;
     --colory-primary-accent-disabled:#E4EBE6;
     --textcursor-animation:#08872B;
@@ -245,7 +246,7 @@ ol, ul{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.42em; /* em ragiona sulla grandezza del sup font parente */
+    gap: 0.42em; /* em ragiona sulla grandezza del suo font parente */
     font-family: var(--font-mono);
     font-size: var(--eyebrow-font-size);
     text-transform: uppercase;
@@ -258,7 +259,7 @@ ol, ul{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 0.42em; /* em ragiona sulla grandezza del sup font parente */
+    gap: 0.42em; /* em ragiona sulla grandezza del suo font parente */
     font-family: var(--font-mono);
     font-size: var(--eyebrow-font-size);
     text-transform: uppercase;
@@ -270,7 +271,7 @@ ol, ul{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.42em; /* em ragiona sulla grandezza del sup font parente */
+    gap: 0.42em; /* em ragiona sulla grandezza del suo font parente */
     font-family: var(--font-mono);
     font-size: var(--eyebrow-font-size);
     text-transform: uppercase;
@@ -296,7 +297,7 @@ a:focus-visible{
 .button{
     padding: 0.6em 1.25em;
     border-radius: 6px;
-    font-size: 16px;
+    font-size: 16px; /* se provo a renderelo accessibile non mi calcola 16 ma 36 (1rem) why? */
     font-weight: var(--font-weight-medium);
     letter-spacing: 0.16px;
     
@@ -400,10 +401,15 @@ a:focus-visible{
 
 .concept-grid{
     display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 12 repeat(8, 1fr) 1fr repeat(3, 1fr); /* continuo a non capire */
+
     grid-template-areas:
     'context context context context context context context context . side-menu side-menu side-menu';
-    padding: var(--padding-64); /* Non sono molto sicura del padding, da vedere con prof. */
-    gap: var(--gap-48);
+   
+   
+    padding: var(--padding-64);
+    column-gap: var(--gap-48);
     /* background-color: rgba(255, 0, 0, 55%); */
 }
 
@@ -491,6 +497,29 @@ a:focus-visible{
     max-width:var(--text-max-width-500-pharaghraphs);
 }
 
+/* INVERTED E'"L'ATTRIBUTO" CHE UNITO A QUALCOSA LO RENDE CONTRARIO DI COLORE RISPETTO AL DESIGN SYSTEM. E' UNA NOMINAZIONE*/
+
+.inverted{
+    background-color:var(--color-black);
+    color: var(--color-white);
+}
+
+.section-pharagraphs-inverted{
+    color: var(--color-muted-inverted);
+    font-size: var(--text-200-font-size);
+    line-height: var(--text-200-line-height);
+    max-width:var(--text-max-width-900-paraghraphs);
+    text-align:center;
+}
+
+
+.card-pharagraphs-inverted{
+    color: var(--color-muted-inverted);
+    font-size: var(--text-200-font-size);
+    line-height: var(--text-200-line-height);
+    max-width:var(--text-max-width-500-pharaghraphs);
+}
+
 .intro{
     display: flex;
     justify-content: center;
@@ -563,17 +592,6 @@ a:focus-visible{
     flex-shrink: 1;
 }
 
-.inverted{
-    background-color:var(--color-black);
-    color: var(--color-white);
-}
-
-.card-pharagraphs-inverted{
-    font-size: var(--text-200-font-size);
-    line-height: var(--text-200-line-height);
-    max-width:var(--text-max-width-500-pharaghraphs);
-    color: var(--color-muted);
-}
 
 .card-title{
     color: var(--color-black);
