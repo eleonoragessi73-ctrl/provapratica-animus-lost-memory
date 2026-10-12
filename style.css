@@ -5,7 +5,7 @@
 
  }
 
- img {
+ img, video {
      display: inline-block; /* permette all'img di occupare uno spazio specifico e se sono affianco all'altra si posizionano tranquillamente */
      max-width: 100%;
  }
@@ -279,6 +279,18 @@ ol, ul{
     color: var(--color-muted);
 }
 
+.eyebrow-section-inverted{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.42em; /* em ragiona sulla grandezza del suo font parente */
+    font-family: var(--font-mono);
+    font-size: var(--eyebrow-font-size);
+    text-transform: uppercase;
+    letter-spacing:1px;
+    color: var(--color-muted-inverted);
+}
+
 .eyebrow-cursor-ret{
     fill:var(--textcursor-animation);
 }
@@ -401,12 +413,14 @@ a:focus-visible{
 
 .concept-grid{
     display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: 12 repeat(8, 1fr) 1fr repeat(3, 1fr); /* continuo a non capire */
+    justify-content: center;
+    align-items: start;
+    grid-template-columns: repeat(auto-fill, minmax(12, 1fr)); /* continuo a non capire */
+    grid-template-rows: repeat(1, 1fr);
 
     grid-template-areas:
-    'context context context context context context context context . side-menu side-menu side-menu';
-   
+    'context context context context context context context context . side-menu side-menu side-menu'
+    ;
    
     padding: var(--padding-64);
     column-gap: var(--gap-48);
@@ -416,16 +430,49 @@ a:focus-visible{
 .concept-context{ 
     display: grid;
     grid-area: context;
-    gap: 32px;
+    row-gap: 2em; /* EM PK POI FARO' I TESTI VARIABILI X RESPONSIVE */
+}
+
+@media (max-width:640px){ /* QUESTIONE SOVRAPPOSIZIONE, E' IL GAP IL PROBLEM */
+    
+    .concept-grid {
+        display: grid;
+        grid-auto-flow: column;
+        /* PROBLEMA, SIDE-MENU OSA NON ANDARE SOTTO! */
+
+
+
+    }
+
+    .concept-context {
+    display: grid;
+    row-gap: 1.5em; /* Deve essere 24px da figma che è padding ma x me è gap */
+    }
+
+}
+
+@media (max-width:857px){
+    .concept-context{
+        display: grid;
+        row-gap: 1.5em; /* 24em di gap */
+    }
+
+    .concept-grid{
+        display: grid;
+        grid-auto-flow: column;
+    }
+
+
+
 }
 
 .intro-concept{
     display: flex;
     flex-direction: column;
-    max-width:750.62px;
-    max-height: 223px;
-    /* background-color: red; */
+    /* max-width:750.62px;*/
     gap: var(--gap-16);
+    /* background-color: red; */
+
 }
 
 .muted-pharagraph{
@@ -435,7 +482,7 @@ a:focus-visible{
 .develope-concept{
     display: flex;
     flex-direction: column;
-    max-width:750.62px;
+    /* max-width:750.62px; */
     gap: var(--gap-24);
     /* background-color: purple; */
 }
@@ -445,7 +492,7 @@ a:focus-visible{
     flex-direction: column;
     grid-area: side-menu;
     /* background-color: beige; */
-    max-width:251.48px;
+    /* max-width:251.48px; */
     gap: 24px;
 }
 
@@ -557,6 +604,13 @@ a:focus-visible{
     height: auto;
 }
 
+@media(max-width:640px){
+    .river-image{
+            max-width: 100%;
+
+    }
+}
+
 .river-video{
     border: var(--color-white) 1px solid;
     box-shadow: 0px 0px 3px 0px var(--color-white);
@@ -602,9 +656,16 @@ a:focus-visible{
 
 
 .image-container{
-    width: 1280px;
+    max-width: 1280px;
     height: auto;
     aspect-ratio: 8/5;
+}
+
+@media(max-width:640px){ /* SISTEMA PROBLEMA VIEWPORT */
+    .image-container{
+            max-width: 100%;
+
+    }
 }
 
 .quote-group{
@@ -620,6 +681,16 @@ a:focus-visible{
     /* background-color: yellow; */
 }
 
+@media(max-width:640px){ /* SISTEMA PROBLEMA VIEWPORT */
+    .quote-author{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+
+    }
+}
+
 .quote-wrapper{
     display: flex;
     flex-direction: column;
@@ -631,7 +702,7 @@ a:focus-visible{
 }
 
 .mark-box{
-    width:56px;
+    max-width:56px;
     height: 56px;
     display: flex;
     align-items: flex-start;
@@ -667,7 +738,7 @@ a:focus-visible{
 }
 
 .figcaption-wrapper{
-    width: 312px;
+    max-width: 312px;
     border-top: var(--color-border-muted-quote) 1px solid; /* usare questa come riferimento x scrivere la proprieta' border se non ci ricordiamo*/
     padding-top: var(--padding-24);
     /*background-color: yellow;*/
@@ -691,7 +762,9 @@ a:focus-visible{
 
 .breakdownTabs{
     display: flex;
-    margin: auto;
+    justify-content: center;
+    align-items: center;
+    /* margin:auto era il problema della viewport*/
 }
 
 .breakdownTabs-content{
@@ -798,6 +871,34 @@ a:focus-visible{
         gap: var(--breakdownTabs-item-desktop-gap-40);
     
     }
+
+    .breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text{
+    display: block;
+}
+
+    .breakdownTabs-ready .breakdownTabs-toggle{
+        display: none;
+    }
+
+}
+
+/* mobile accordion media query */
+@media (max-width:1000px) {
+    .breakdownTabs-list{
+        display: flex;
+        flex-direction: column;
+        gap: var(--breakdownTabs-item-desktop-gap-40);
+        margin: auto;
+    }
+
+    .breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text{
+        display: none;
+    }
+
+    .breakdownTabs-ready .breakdownTabs-toggle{
+        display: block;
+    }
+
 }
 
 
@@ -852,22 +953,6 @@ a:focus-visible{
 .display{
     display: none;
 }
-
-.breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text{
-    display: none;
-}
-
-.breakdownTabs-ready .breakdownTabs-toggle{
-    display: block;
-}
-
-
-
-
-
-
-
-
 
 
 

@@ -59,3 +59,38 @@ desktopMedia.addEventListener('change', function () {
   else if (desktopMedia.matches && focusOnButton) navigationPanel.querySelector('a').focus();
   else if (!desktopMedia.matches && focusInNavigation) navigationButton.focus();
 });
+
+
+/* CODICE JAVASCRIPT PER BREAKDOWN */
+
+/* Passo 1 */
+const breakdownTabs = document.querySelector(".breakdownTabs");
+const breakdownTabsItems = document.querySelectorAll(".breakdownTabs-item")
+const breakdownTabsButton = document.querySelectorAll(".breakdownTabs-button")
+
+/* Passo 2 */
+
+breakdownTabs.classList.add("breakdownTabs-ready");
+
+/* Passo 3 */
+function selectBreakdownTabs(selectedIndex) {
+  for (let i = 0; i < breakdownTabsItems.length; i++) {
+    
+    if (i === selectedIndex) {
+      breakdownTabsItems[i].classList.add('is-selected');
+    }
+
+    else {
+      breakdownTabsItems[i].classList.remove('is-selected');
+    }
+  }
+}
+
+/* Passo 4 */
+for (let i = 0; i < breakdownTabsButton.length; i++) {
+  breakdownTabsButton[i].addEventListener('click', function() {
+    selectBreakdownTabs(i);
+  });
+}
+
+
