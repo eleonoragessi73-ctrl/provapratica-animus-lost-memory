@@ -844,7 +844,7 @@ a:focus-visible{
 
     .breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text{
     display: block;
-}
+    }
 
     .breakdownTabs-ready .breakdownTabs-toggle{
         display: none;
@@ -868,6 +868,7 @@ a:focus-visible{
 
     .breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text{
         display: none;
+
     }
 
     .breakdownTabs-ready .breakdownTabs-toggle{
@@ -884,6 +885,7 @@ a:focus-visible{
     text-wrap: balance;
     font-size: var(--text-350-font-size);
     line-height: var(--text-350-line-height);
+    
 }
 
 .icon{
@@ -927,6 +929,7 @@ a:focus-visible{
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .display{

@@ -73,15 +73,22 @@ const breakdownTabsButton = document.querySelectorAll(".breakdownTabs-button")
 breakdownTabs.classList.add("breakdownTabs-ready");
 
 /* Passo 3 */
+
 function selectBreakdownTabs(selectedIndex) {
   for (let i = 0; i < breakdownTabsItems.length; i++) {
+    let element = breakdownTabsButton[i];
+    let toggle = breakdownTabsItems[i].querySelector('.breakdownTabs-toggle');
     
     if (i === selectedIndex) {
-      breakdownTabsItems[i].classList.add('is-selected');
+      breakdownTabsItems[i].classList.add('is-selected'); /* QUANDO E' CLICCATO */
+      element.style.color = 'var(--color-black)'; /* cambia il colore in nero quando è cliccata la scheda */
+      toggle.style.transform = 'rotate(180deg)' /* gira il triangolino di 180 gradi */
     }
 
     else {
-      breakdownTabsItems[i].classList.remove('is-selected');
+      breakdownTabsItems[i].classList.remove('is-selected'); /* QUANDO NON E' CLICCATO... */
+      element.style.color = 'var(--color-muted)'; /* cambia il colore in "disabled" quando non è cliccato */
+      toggle.style.transform = 'rotate(0deg)'; /* gira il triangolino a come era prima */
     }
   }
 }
@@ -93,4 +100,7 @@ for (let i = 0; i < breakdownTabsButton.length; i++) {
   });
 }
 
+/* Passo 4.5 */
+
+selectBreakdownTabs(0); /* Permette di quando si carica la pagina di partire con la prima scheda cliccata */
 
