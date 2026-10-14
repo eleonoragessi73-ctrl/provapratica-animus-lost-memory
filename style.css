@@ -105,7 +105,7 @@
     --color-focus:#3094ff;
     
     --padding-24:24px; /* 24px */
-    --padding-64:64px; /* 64px */
+    --padding-64:4em; /* 64px */
     --padding-48:48px; /* 48px */
 
      /* Padding per casestudy uguale per più valori */
@@ -341,6 +341,7 @@ a:focus-visible{
     transition: background-color 300ms ease-in-out; /* Esempio di transizione da tenere da conto anche per gli altri elementi/token */
 
 }
+
 .button-primary:hover{
     color: color-mix(in srgb, var(--color-white)) #fff 100%;
     border-color: color-mix(in srgb, var(--button-primary-bg-hover), #000 16%);
@@ -356,8 +357,6 @@ a:focus-visible{
 .button:focus-visible{ /* Pseudoclasse per toccare il focus */
     outline: 4px solid var(--color-focus); /* Valore per il focus */
 }
-
-/* @media (852px) and (829px) BOTTONI PROBLEMA SU 2 LINEE */
 
 
 .author-course{
@@ -430,21 +429,7 @@ a:focus-visible{
     row-gap: 2em; /* EM PK POI FARO' I TESTI VARIABILI X RESPONSIVE */
 }
 
-@media (max-width:640px){ /* DA 640 IN GIU' */
-    
-    .concept-grid{
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        grid-template-columns: 1fr;
-        grid-template-areas:
-        "context"
-        "."
-        "side-menu";
-        row-gap: 1.5em; /* 24px */
-    }
 
-}
 
 
 .intro-concept{
@@ -574,12 +559,7 @@ a:focus-visible{
     height: auto;
 }
 
-@media(max-width:640px){
-    .river-image{
-            max-width: 100%;
 
-    }
-}
 
 .river-video{
     border: var(--color-white) 1px solid;
@@ -631,12 +611,7 @@ a:focus-visible{
     aspect-ratio: 8/5;
 }
 
-@media(max-width:640px){ /* SISTEMA PROBLEMA VIEWPORT */
-    .image-container{
-            max-width: 100%;
 
-    }
-}
 
 .quote-group{
     padding: var(--padding-64);
@@ -651,15 +626,7 @@ a:focus-visible{
     /* background-color: yellow; */
 }
 
-@media(max-width:640px){ /* SISTEMA PROBLEMA VIEWPORT */
-    .quote-author{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            flex-wrap: wrap;
 
-    }
-}
 
 .quote-wrapper{
     display: flex;
@@ -832,54 +799,7 @@ a:focus-visible{
 
 }
 
-/* sono intervenuta così poiché con flexbox era semplice toccare le singole card ma a livello di passaggio tra accordion e layout fatto da me le cose si complicavano cosi' ho usato il selettore :has per indicare che ha quelle colonne e spostare il focus della regola sul min-width invece di doverne sacrificare una o scrivere doppie regole */
-@media (min-width: 1000px) { /* RICORDA: MIN-(//) significa da X IN SU CONSIDERO.... */
-    .breakdownTabs-list:has(.breakdownTabs-item) {
-        flex: 1; /* ALLA GROSSOLANA è il fr di flexbox. Esso dispone le mie card in base ad un rapport di 1/3 dello spazio disponibile */
-        display: flex;
-        flex-direction: row;
-        gap: var(--breakdownTabs-item-desktop-gap-40);
-    
-    }
 
-    .breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text{
-    display: block;
-    }
-
-    .breakdownTabs-ready .breakdownTabs-toggle{
-        display: none;
-    }
-
-}
-
-/* mobile accordion media query */
-@media (max-width:1000px) {
-    .breakdownTabs-list{
-        display: flex;
-        flex-direction: column;
-        gap: var(--breakdownTabs-item-desktop-gap-40);
-        width: 100%;
-    }
-
-    .breakdownTabs-item {
-        width: 100%;
-        max-width: none;
-    }
-
-    .breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text{
-        display: none;
-
-    }
-
-    .breakdownTabs-ready .breakdownTabs-toggle{
-        display: block;
-    }
-
-}
-
-@media (max-width:640px) { /* sistemare spazi x sezioni */
-
-}
 
 .text-size-350{
     text-wrap: balance;
@@ -937,9 +857,105 @@ a:focus-visible{
 }
 
 
+/* SPAZIO MEDIA QUERY */
+
+@media (min-width:825px) and (max-width:858px){ /* sistemazioni bottoni non riuscita */
+
+    .button-secondary{
+        background-color: var(--button-secondary-bg);
+        border-color: var(--button-secondary-border) solid 1px;
+        color:var(--button-secondary-fg);
+        transition: background-color 300ms ease-in-out; /* Esempio di transizione da tenere da conto anche per gli altri elementi/token */
+        gap: 20px;
+    }
+}
+
+@media (max-width:640px){ /* DA 640 IN GIU' */
+    
+    .concept-grid{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "context"
+        "."
+        "side-menu";
+        row-gap: 1.5em; /* 24px */
+        padding: 4em 0em 4em 0em;
+    }
+}
+
+@media(max-width:640px){
+    .river-image{
+            max-width: 100%;
+
+    }
+}
 
 
+@media(max-width:640px){ /* SISTEMA PROBLEMA VIEWPORT */
+    .image-container{
+            max-width: 100%;
 
+    }
+}
+
+
+@media(max-width:640px){ /* SISTEMA PROBLEMA VIEWPORT */
+    .quote-author{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+
+    }
+}
+
+/* sono intervenuta così poiché con flexbox era semplice toccare le singole card ma a livello di passaggio tra accordion e layout fatto da me le cose si complicavano cosi' ho usato il selettore :has per indicare che ha quelle colonne e spostare il focus della regola sul min-width invece di doverne sacrificare una o scrivere doppie regole */
+@media (min-width: 1000px) { /* RICORDA: MIN-(//) significa da X IN SU CONSIDERO.... */
+    .breakdownTabs-list:has(.breakdownTabs-item) {
+        flex: 1; /* ALLA GROSSOLANA è il fr di flexbox. Esso dispone le mie card in base ad un rapport di 1/3 dello spazio disponibile */
+        display: flex;
+        flex-direction: row;
+        gap: var(--breakdownTabs-item-desktop-gap-40);
+    
+    }
+
+    .breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text{
+        display: block;
+    }
+
+    .breakdownTabs-ready .breakdownTabs-toggle{
+        display: none;
+    }
+
+}
+
+/* mobile accordion media query */
+@media (max-width:1000px) {
+    .breakdownTabs-list{
+        display: flex;
+        flex-direction: column;
+        gap: var(--breakdownTabs-item-desktop-gap-40);
+        width: 100%;
+    }
+
+    .breakdownTabs-item {
+        width: 100%;
+        max-width: none;
+    }
+
+    .breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text{
+        display: none;
+
+    }
+
+    .breakdownTabs-ready .breakdownTabs-toggle{
+        display: block;
+    }
+
+}
 
 
 
@@ -1216,7 +1232,7 @@ img {
 }
 
 /* Su tablet cambia il layout, ma il popover resta attivo */
-@media (min-width: 48rem) {
+@media (min-width: 48rem) { /* 668px */
     .navigation {
         --navigation-height: 4em;
         --navigation-title-font-size: 1em;
@@ -1269,7 +1285,7 @@ img {
 }
 
 /* Su desktop JS rimuove popover e gli elementi si dispongono in linea */
-@media (min-width: 63.25rem) {
+@media (min-width: 63.25rem) { /* 1012px */
     .navigation {
         --navigation-inline-list-padding: 0 0 0 1em;
         --navigation-inline-link-padding: 0 0.25em;
