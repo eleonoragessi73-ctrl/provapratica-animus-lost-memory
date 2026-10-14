@@ -122,24 +122,24 @@
     --gap-120:120px;
 
     /* REGOLE PER BREAKDOWNS DESKTOP */    
-    --breakdownTabs-item-desktop-gap-40:2.5em; /* (40px) X breakdownTabs-list, distanza tra cards */  
-    --breakdownTabs-desktop-content-padding-top:3.75em; /* (60px) Fatto 60 x logica e comodita', i valori son divisi perche' in mobile lo sono */
+    --breakdownTabs-item-desktop-gap-40:40px; /* (2.5em) X breakdownTabs-list, distanza tra cards */  
+    --breakdownTabs-desktop-content-padding-top:60px; /* (3.75em) Fatto 60 x logica e comodita', i valori son divisi perche' in mobile lo sono */
     --breakdownTabs-desktop-content-padding-bottom:60px;  /* (60px) Fatto 60 x logica e comodita', i valori son divisi perche' in mobile lo sono */
-    --breakdownTabs-desktop-content-padding-right-left:5em; /* (80px) */ 
-    --breakdownTabs-desktop-button-padding-top:1.75em; /* (28px) distanza tra card e linea selected or not selected */
-    --breakdownTabs-desktop-item-row-gap:0.75em; /* (12px) gap di breakdownTabs-item, ovvero spazio tra titolo e descrizione */
+    --breakdownTabs-desktop-content-padding-right-left:80px; /* (5em) */ 
+    --breakdownTabs-desktop-button-padding-top:28px; /* (1.75em) distanza tra card e linea selected or not selected */
+    --breakdownTabs-desktop-item-row-gap:12px; /* (0.75em) gap di breakdownTabs-item, ovvero spazio tra titolo e descrizione */
 
     /* REGOLE PER BREAKDOWNTABS MOBILE */
     /* SONO SCRITTI IN ORDINE COME SOPRA X IL DESKTOP */
 
-    --breakdownTabs-mobile-button-gap-24:1.5em; /* (24px) spazio tra toggle e testo */
+    --breakdownTabs-mobile-button-gap-24:24px; /* (1.5em) spazio tra toggle e testo */
    
-    --breakdownTabs-item-mobile-padding-24:1.5em; /* (24px) Spazio fra card (padding sotto)*/    
-    --breakdownTabs-mobile-content-padding-top:2.25em; /* (36px) Sostituto x mobile di content-padding-top */
-    --breakdownTabs-mobile-content-padding-bottom:2.5em;  /* (40px) Sostituto x mobile di content-padding-bottom */
-    --breakdownTabs-mobile-content-padding-right-left:1.25em; /* (20px) Sostituto x mobile di content-padding-left e right */
-    --breakdownTabs-mobile-button-padding-top:3.5em; /* (56px) Sostituto di br...-button-padding-top */
-    --breakdownTabs-mobile-item-row-gap:0.75px; /* (12px) Sostituto di br...-item-row-gap. Sarebbe padding su figma ma per comodita' e logica ho lasciato gap */
+    --breakdownTabs-item-mobile-padding-24:24px; /* (1.5em) Spazio fra card (padding sotto)*/    
+    --breakdownTabs-mobile-content-padding-top:36px; /* (2.25emZ) Sostituto x mobile di content-padding-top */
+    --breakdownTabs-mobile-content-padding-bottom:40px;  /* (2.5em) Sostituto x mobile di content-padding-bottom */
+    --breakdownTabs-mobile-content-padding-right-left:20px; /* (1.25em) Sostituto x mobile di content-padding-left e right */
+    --breakdownTabs-mobile-button-padding-top:56px; /* (3.5em) Sostituto di br...-button-padding-top */
+    --breakdownTabs-mobile-item-row-gap:12px; /* (0.75em) Sostituto di br...-item-row-gap. Sarebbe padding su figma ma per comodita' e logica ho lasciato gap */
 
 
 
@@ -334,6 +334,13 @@ a:focus-visible{
     transition: background-color 300ms ease-in-out; /* Esempio di transizione da tenere da conto anche per gli altri elementi/token */
 }
 
+.button-primary:hover{
+    color: color-mix(in srgb, var(--color-white)) #fff 100%;
+    border-color: color-mix(in srgb, var(--button-primary-bg-hover), #000 16%);
+    background-color: color-mix(in srgb, var(--button-primary-bg-hover), #000 16%);
+}
+
+
 .button-secondary{
     background-color: var(--button-secondary-bg);
     border-color: var(--button-secondary-border) solid 1px;
@@ -342,16 +349,21 @@ a:focus-visible{
 
 }
 
-.button-primary:hover{
-    color: color-mix(in srgb, var(--color-white)) #fff 100%;
-    border-color: color-mix(in srgb, var(--button-primary-bg-hover), #000 16%);
-    background-color: color-mix(in srgb, var(--button-primary-bg-hover), #000 16%);
-}
-
 .button-secondary:hover{
     color:var(--button-secondary-fg);
     border-color: color-mix(in srgb, var(--button-primary-bg-hover), #fff 16%);
     background-color: color-mix(in srgb, var(--button-secondary-bg), #fff 6%);
+}
+
+@media (min-width:825px) and (max-width:858px){ /* sistemazioni bottoni non riuscita */
+
+    .button-secondary{
+        background-color: var(--button-secondary-bg);
+        border-color: var(--button-secondary-border) solid 1px;
+        color:var(--button-secondary-fg);
+        transition: background-color 300ms ease-in-out; /* Esempio di transizione da tenere da conto anche per gli altri elementi/token */
+        gap: 20px;
+    }
 }
 
 .button:focus-visible{ /* Pseudoclasse per toccare il focus */
@@ -421,6 +433,22 @@ a:focus-visible{
     padding: var(--padding-64);
     column-gap: var(--gap-48);
     /* background-color: rgba(255, 0, 0, 55%); */
+}
+
+@media (max-width:640px){ /* DA 640 IN GIU' */
+    
+    .concept-grid{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "context"
+        "."
+        "side-menu";
+        row-gap: 1.5em; /* 24px */
+        padding: 4em 0em 4em 0em;
+    }
 }
 
 .concept-context{ 
@@ -559,6 +587,13 @@ a:focus-visible{
     height: auto;
 }
 
+@media(max-width:640px){
+    .river-image{
+            max-width: 100%;
+
+    }
+}
+
 
 
 .river-video{
@@ -612,6 +647,13 @@ a:focus-visible{
 }
 
 
+@media(max-width:640px){ /* SISTEMA PROBLEMA VIEWPORT */
+    .image-container{
+            max-width: 100%;
+
+    }
+}
+
 
 .quote-group{
     padding: var(--padding-64);
@@ -626,6 +668,15 @@ a:focus-visible{
     /* background-color: yellow; */
 }
 
+@media(max-width:640px){ /* SISTEMA PROBLEMA VIEWPORT */
+    .quote-author{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+
+    }
+}
 
 
 .quote-wrapper{
@@ -751,7 +802,7 @@ a:focus-visible{
 .breakdownTabs-item{ /* CLASSE DELLE SINGOLE CARD */
     position: relative; /* la posizione è relativa a...questa card */
 
-    max-width: 360px;
+    width: 360px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -834,6 +885,12 @@ a:focus-visible{
     gap: var(--breakdownTabs-desktop-item-row-gap);
 }
 
+.breakdownTabs-button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
 .breakdownTabs-button:focus-visible {
     outline: none;
 }
@@ -857,68 +914,17 @@ a:focus-visible{
 }
 
 
-/* SPAZIO MEDIA QUERY */
-
-@media (min-width:825px) and (max-width:858px){ /* sistemazioni bottoni non riuscita */
-
-    .button-secondary{
-        background-color: var(--button-secondary-bg);
-        border-color: var(--button-secondary-border) solid 1px;
-        color:var(--button-secondary-fg);
-        transition: background-color 300ms ease-in-out; /* Esempio di transizione da tenere da conto anche per gli altri elementi/token */
-        gap: 20px;
-    }
-}
-
-@media (max-width:640px){ /* DA 640 IN GIU' */
-    
-    .concept-grid{
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        grid-template-columns: 1fr;
-        grid-template-areas:
-        "context"
-        "."
-        "side-menu";
-        row-gap: 1.5em; /* 24px */
-        padding: 4em 0em 4em 0em;
-    }
-}
-
-@media(max-width:640px){
-    .river-image{
-            max-width: 100%;
-
-    }
-}
-
-
-@media(max-width:640px){ /* SISTEMA PROBLEMA VIEWPORT */
-    .image-container{
-            max-width: 100%;
-
-    }
-}
-
-
-@media(max-width:640px){ /* SISTEMA PROBLEMA VIEWPORT */
-    .quote-author{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            flex-wrap: wrap;
-
-    }
-}
-
 /* sono intervenuta così poiché con flexbox era semplice toccare le singole card ma a livello di passaggio tra accordion e layout fatto da me le cose si complicavano cosi' ho usato il selettore :has per indicare che ha quelle colonne e spostare il focus della regola sul min-width invece di doverne sacrificare una o scrivere doppie regole */
 @media (min-width: 1000px) { /* RICORDA: MIN-(//) significa da X IN SU CONSIDERO.... */
+    
+    .breakdownTabs-item{
+        width: 100%;
+    }
+
     .breakdownTabs-list:has(.breakdownTabs-item) {
-        flex: 1; /* ALLA GROSSOLANA è il fr di flexbox. Esso dispone le mie card in base ad un rapport di 1/3 dello spazio disponibile */
-        display: flex;
-        flex-direction: row;
-        gap: var(--breakdownTabs-item-desktop-gap-40);
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        column-gap: var(--breakdownTabs-item-desktop-gap-40);
     
     }
 
@@ -933,10 +939,12 @@ a:focus-visible{
 }
 
 /* mobile accordion media query */
-@media (max-width:1000px) {
+@media (max-width:999px) { /*PROBLEMA: NON CAPISCO PK CI SIA UN BREAKPOINT DI MEZZO  */
     .breakdownTabs-list{
         display: flex;
         flex-direction: column;
+        color: var(--color-black);
+
         gap: var(--breakdownTabs-item-desktop-gap-40);
         width: 100%;
     }
@@ -1285,7 +1293,7 @@ img {
 }
 
 /* Su desktop JS rimuove popover e gli elementi si dispongono in linea */
-@media (min-width: 63.25rem) { /* 1012px */
+@media (min-width: 1000px) { /* 1000px - 63.25rem */
     .navigation {
         --navigation-inline-list-padding: 0 0 0 1em;
         --navigation-inline-link-padding: 0 0.25em;

@@ -2,7 +2,7 @@
 const navigationButton = document.querySelector('.navigation-toggle');
 const navigationLabel = document.querySelector('.navigation-label');
 const navigationPanel = document.querySelector('.navigation-panel');
-const desktopMedia = window.matchMedia('(min-width: 63.25rem)');
+const desktopMedia = window.matchMedia('(min-width: 1000px)');
 const supportsNavigation = 'popover' in HTMLElement.prototype &&
   CSS.supports('top', 'anchor(bottom)') &&
   CSS.supports('width', 'anchor-size(width)');
@@ -65,12 +65,16 @@ desktopMedia.addEventListener('change', function () {
 
 /* Passo 1 */
 const breakdownTabs = document.querySelector(".breakdownTabs");
-const breakdownTabsItems = document.querySelectorAll(".breakdownTabs-item")
-const breakdownTabsButton = document.querySelectorAll(".breakdownTabs-button")
+const breakdownTabsItems = document.querySelectorAll(".breakdownTabs-item");
+const breakdownTabsButton = document.querySelectorAll(".breakdownTabs-button");
 
 /* Passo 2 */
 
 breakdownTabs.classList.add("breakdownTabs-ready");
+
+/* Passo 2.5 - considero e verifico la media query mobile */
+
+const mobilequery = window.matchMedia('(max-width: 999px)'); /* da cambiare quando risolvo problema breakpoint */
 
 /* Passo 3 */
 
@@ -82,7 +86,7 @@ function selectBreakdownTabs(selectedIndex) {
     if (i === selectedIndex) {
       breakdownTabsItems[i].classList.add('is-selected'); /* QUANDO E' CLICCATO */
       element.style.color = 'var(--color-black)'; /* cambia il colore in nero quando è cliccata la scheda */
-      toggle.style.transform = 'rotate(180deg)' /* gira il triangolino di 180 gradi */
+      toggle.style.transform = 'rotate(180deg)';/* gira il triangolino di 180 gradi */
     }
 
     else {
@@ -92,6 +96,7 @@ function selectBreakdownTabs(selectedIndex) {
     }
   }
 }
+
 
 /* Passo 4 */
 for (let i = 0; i < breakdownTabsButton.length; i++) {
@@ -104,3 +109,14 @@ for (let i = 0; i < breakdownTabsButton.length; i++) {
 
 selectBreakdownTabs(0); /* Permette di quando si carica la pagina di partire con la prima scheda cliccata */
 
+/* COMMENTO DELL' AI CHE VORREI APPROFONDIRE:
+
+4. Ci sono problemi di prestazioni?
+Nel tuo progetto, con tre schede, il costo è praticamente trascurabile.
+window.matchMedia() è uno strumento nativo del browser e verificare .matches è un'operazione molto leggera. Non stai creando un processo pesante né ricaricando la pagina.
+L'unica accortezza è non aggiungere inutilmente molti ascoltatori resize o change: nel tuo caso ne basta uno per gestire il passaggio tra mobile e desktop.
+Il mio consiglio finale
+Per il tuo accordion, continuerei tranquillamente con JavaScript, dato che vuoi mantenere la logica che hai già sviluppato. Assicurati soltanto che lo script venga eseguito dopo che gli elementi HTML delle schede sono stati caricati, ad esempio posizionandolo prima della chiusura di </body> oppure usando defer se si trova in un file esterno.
+Così eviti che querySelectorAll() venga eseguito prima che i titoli esistano nel DOM.
+
+*/
