@@ -73,7 +73,6 @@ const breakdownTabsButton = document.querySelectorAll(".breakdownTabs-button");
 breakdownTabs.classList.add("breakdownTabs-ready");
 
 /* Passo 2.5 - considero e verifico la media query mobile */
-
 const mobilequery = window.matchMedia('(max-width: 999px)'); /* da cambiare quando risolvo problema breakpoint */
 
 /* Passo 3 */
@@ -83,6 +82,8 @@ function selectBreakdownTabs(selectedIndex) {
     let element = breakdownTabsButton[i];
     let toggle = breakdownTabsItems[i].querySelector('.breakdownTabs-toggle');
     
+    const isSelected = i === selectedIndex;
+
     if (i === selectedIndex) {
       breakdownTabsItems[i].classList.add('is-selected'); /* QUANDO E' CLICCATO */
       element.style.color = 'var(--color-black)'; /* cambia il colore in nero quando è cliccata la scheda */
@@ -94,9 +95,21 @@ function selectBreakdownTabs(selectedIndex) {
       element.style.color = 'var(--color-muted)'; /* cambia il colore in "disabled" quando non è cliccato */
       toggle.style.transform = 'rotate(0deg)'; /* gira il triangolino a come era prima */
     }
+
+    if(mobilequery.matches){ /* se la query e' true */
+      element.style.color = 'var(--color-black)';
+    }
+
+    else if (isSelected){ /* se la condizione seleziona la scheda */
+      element.style.color = 'var(--color-black)'; /* DESKTOP: DOVREBBE FARE I TITOLI NERI */
+     
+    }
+
+    else if (!isSelected) {
+      element.style.color = 'var(--color-muted)'; /* DESKTOP NON SELEZIONATI GRIGI*/
+    }
   }
 }
-
 
 /* Passo 4 */
 for (let i = 0; i < breakdownTabsButton.length; i++) {
@@ -105,13 +118,26 @@ for (let i = 0; i < breakdownTabsButton.length; i++) {
   });
 }
 
-/* Passo 4.5 */
+
+/* Passo 5: aggiorno i colori quando cambia la media query */
+mobilequery.addEventListener('change', function() {
+  
+  const selectedItem = document.querySelector(
+    '.breakdownTabs-item.is-selected'
+  );
+  
+  const selectedIndex = Array.from(breakdownTabsItems).indexOf(selectedItem);
+  
+  selectBreakdownTabs(selectedIndex);
+  
+});
 
 selectBreakdownTabs(0); /* Permette di quando si carica la pagina di partire con la prima scheda cliccata */
 
 /* COMMENTO DELL' AI CHE VORREI APPROFONDIRE:
 
 4. Ci sono problemi di prestazioni?
+
 Nel tuo progetto, con tre schede, il costo è praticamente trascurabile.
 window.matchMedia() è uno strumento nativo del browser e verificare .matches è un'operazione molto leggera. Non stai creando un processo pesante né ricaricando la pagina.
 L'unica accortezza è non aggiungere inutilmente molti ascoltatori resize o change: nel tuo caso ne basta uno per gestire il passaggio tra mobile e desktop.

@@ -31,6 +31,7 @@
     --heading-1-font-size:3.5rem; /* 56px FUNZIONA */
     --heading-1-line-height:1.1; /* Equivale al valore del font size per 1.1(110%) */
     --eyebrow-font-size:0.875rem; /* 14px FUNZIONA */
+    --eyebrow-letter-spacing:1; /* 1px */
     --titoletto-author-font-size:0.875rem; /* 14px FUNZIONA */ 
     --descrizione-author-font-size:1rem; /* 16px FUNZIONA */
     --heading-2-font-size:2.125rem; /* 34px FUNZIONA */
@@ -41,6 +42,9 @@
     --heading-4-line-height:1.4;
     --heading-5-font-size:1.25rem; /* 20px FUNZIONA */
     --heading-5-line-height:1.3;
+
+    --button-font-size-16:1rem; /* 16px */
+    --button-line-height-16:1.5; /* da figma risulta 150% di intelinea */
 
     /* FONT THINGS X CITAZIONE */
     --font-size-64-mark:4rem; /* 64px  FUNZIONA*/
@@ -116,6 +120,7 @@
     --hero-content-gap:1em;
     --gap-6:6px;
     --gap-10:10px;
+    --gap-12:12px;
     --gap-16:16px;
     --gap-24:24px;
     --gap-48:48px;
@@ -304,11 +309,11 @@ a:focus-visible{
 }
 
 .button{
+
     padding: 0.6em 1.25em;
     border-radius: 6px;
-    font-size: 16px; /* se provo a renderelo accessibile non mi calcola 16 ma 36 (1rem) why? */
-    font-weight: var(--font-weight-medium);
-    letter-spacing: 0.16px;
+    font-size: var(--button-font-size-16);
+    letter-spacing: var(--button-line-height-16);
     
 }
 
@@ -316,7 +321,7 @@ a:focus-visible{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: var(--gap-12);
 }
 
 .button-group{
@@ -324,7 +329,7 @@ a:focus-visible{
     align-items: center;
     justify-content: center;
     gap: 1em;
-    padding-top: 28px;
+    padding-top:28px;
 }
 
 .button-primary{
@@ -355,19 +360,40 @@ a:focus-visible{
     background-color: color-mix(in srgb, var(--button-secondary-bg), #fff 6%);
 }
 
-@media (min-width:825px) and (max-width:858px){ /* sistemazioni bottoni non riuscita */
-
-    .button-secondary{
-        background-color: var(--button-secondary-bg);
-        border-color: var(--button-secondary-border) solid 1px;
-        color:var(--button-secondary-fg);
-        transition: background-color 300ms ease-in-out; /* Esempio di transizione da tenere da conto anche per gli altri elementi/token */
-        gap: 20px;
-    }
-}
-
 .button:focus-visible{ /* Pseudoclasse per toccare il focus */
     outline: 4px solid var(--color-focus); /* Valore per il focus */
+}
+
+@media (max-width:858px){ /*  DA 858 IN GIU'... ma non funza dopo */
+
+    :root{
+        --button-font-size-16:0.875rem; /* 14px */
+        --eyebrow-font-size:0.75rem; /* 12px */
+        --eyebrow-letter-spacing:0.5px;
+
+    }
+
+    /* tentativo di rendere quel bottone decente e non orrendo */
+    .button-secondary{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--gap-12);
+    }
+
+    .btn-secondary-svg{
+        display: inline;
+        align-self: center;
+        width:30px;
+    }
+
+}
+
+@media (max-width:432px){ /* sistemare font-size e padding sezioni quote e hero */
+    :root{
+        --heading-1-font-size:2.125rem; /* 34px */
+        --padding-80-137:0px;
+    }
 }
 
 
@@ -387,7 +413,7 @@ a:focus-visible{
     padding-top: var(--padding-24);
     gap: 24px;
     flex-wrap: wrap; /* Brevemente, permette di mandare elementi a capo, detto wrappare, utile per ragionare sul mobile prima delle media query */
-
+    flex-shrink: 1;
 }
 
 .author-card{
@@ -594,8 +620,6 @@ a:focus-visible{
     }
 }
 
-
-
 .river-video{
     border: var(--color-white) 1px solid;
     box-shadow: 0px 0px 3px 0px var(--color-white);
@@ -632,6 +656,25 @@ a:focus-visible{
 }
 
 
+@media (max-width:640px){ /* da capire pk non funziona */
+
+    /* fatto super easy ma non mi accontento 
+    .river-inverted{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    */
+
+    .first-river, .third-river{
+        display: flex;
+    }
+
+    .order-image{
+        order: -1;
+    }
+
+}
+
 .card-title{
     color: var(--color-black);
     font-size: var(--heading-5-font-size);
@@ -646,11 +689,11 @@ a:focus-visible{
     aspect-ratio: 8/5;
 }
 
-
 @media(max-width:640px){ /* SISTEMA PROBLEMA VIEWPORT */
     .image-container{
-            max-width: 100%;
-
+       /*  width: 100lvh; Altezza massima della viewport - VEDERE CON PROF. SE FATTIBILE */
+       max-width: 100%; 
+       background-color: lightpink;
     }
 }
 
@@ -1326,6 +1369,7 @@ img {
     .navigation-panel:not([popover]) .navigation-list a span {
         padding: var(--navigation-inline-label-padding);
         border-radius: var(--radius-pill);
+        color: var(--color-muted-inverted);
     }
     .navigation-panel:not([popover]) .navigation-list a:hover, .navigation-panel:not([popover]) .navigation-list a:focus-visible {
         background: transparent;
