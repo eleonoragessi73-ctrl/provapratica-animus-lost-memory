@@ -119,6 +119,7 @@ for (let i = 0; i < breakdownTabsButton.length; i++) {
 }
 
 
+
 /* Passo 5: aggiorno i colori quando cambia la media query */
 mobilequery.addEventListener('change', function() {
   
