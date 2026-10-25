@@ -601,7 +601,6 @@ a:focus-visible{
 
 .river-image{
     max-width: 628px;
-    height: auto;
 }
 
 .river-video{
@@ -615,6 +614,7 @@ a:focus-visible{
 }
 
 .river-inverted{
+    max-width: var(--container-width); /* Vedere cosa ho fatto col prof. */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -643,7 +643,7 @@ a:focus-visible{
     display: none;
 }
 
-@media (max-width:1312px){
+@media (max-width:1312px){ /* fatto per sistemare i margin dei river */
 
     .river-content{
         margin-left: 0px;
@@ -692,14 +692,6 @@ a:focus-visible{
 }
 
 
-
-.image-container{
-    max-width: 1280px;
-    height: auto;
-    aspect-ratio: 8/5;
-}
-
-
 .quote-group{
     padding: var(--padding-64);
 }
@@ -713,51 +705,6 @@ a:focus-visible{
     /* background-color: yellow; */
 }
 
-@media(max-width:640px){ /* SISTEMA PROBLEMA VIEWPORT */
-   
-   
-   :root{
-        --font-size-32-quote:20px;
-        --line-height-150-quote:1.5;
-        --spacing-quote:-0.015em;
-    }
-
-    .hero{
-        background-size: 100% cover;
-        background-position: center;
-        background-repeat:no-repeat;
-        background-image: url("assets/images/Cover background hero.png");
-    }
-
-    .intro{
-        padding: 64px 0px 64px 0px;
-    }
-
-    .river-content{
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-
-
-    .quote-author{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            flex-wrap: wrap;
-            gap: var(--gap-24);
-    }
-
-    .quote-group{
-        padding: 64px 0px 64px 0px;
-    }
-
-    .breakdownTabs-content{
-        padding-top: 60px;
-        padding-bottom: 60px;
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-}
 
 
 .quote-wrapper{
@@ -914,6 +861,58 @@ a:focus-visible{
     
     background-color: var(--color-primary-accent);
 
+}
+
+
+@media(max-width:640px){ /* SISTEMA PROBLEMA VIEWPORT */
+   
+   
+   :root{
+        --font-size-32-quote:20px;
+        --line-height-150-quote:1.5;
+        --spacing-quote:-0.015em;
+    }
+
+    .hero{
+        background-size: cover;
+        background-position: center;
+        background-repeat:no-repeat;
+        background-image: url("assets/images/Cover background hero.png");
+    }
+
+    .intro{
+        padding: 64px 0px 64px 0px;
+    }
+
+    .river-content{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .image-container{
+        max-width: 1280px;
+        height: auto;
+        aspect-ratio: 8/5;
+    }
+
+    .quote-author{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: var(--gap-24);
+    }
+
+    .quote-group{
+        padding: 64px 0px 64px 0px;
+    }
+
+    .breakdownTabs-content{
+        padding-top: 60px;
+        padding-bottom: 60px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 
 @media (hover: hover) and (pointer:fine) { /* indica l'hover desktop e il touch mobile rendendoli veri e funzionanti */
@@ -1094,12 +1093,15 @@ a:focus-visible{
     }
     
     .river-content{ /* x testi dei river */
+        display: flex;
+        justify-content: center;
         padding-left: var(--padding-80);
         padding-right: var(--padding-80);
     }
 
     .river-inverted{ /* x testi dei river */
         display: flex;
+        justify-content: center;
         padding-left: 0px;
         padding-right: 0px;
     }

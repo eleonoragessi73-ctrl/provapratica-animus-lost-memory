@@ -127,6 +127,7 @@ mobilequery.addEventListener('change', function() {
     '.breakdownTabs-item.is-selected'
   );
   
+  
   const selectedIndex = Array.from(breakdownTabsItems).indexOf(selectedItem);
   
   selectBreakdownTabs(selectedIndex);
